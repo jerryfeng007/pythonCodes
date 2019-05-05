@@ -40,5 +40,10 @@ while True:
     else:
         print(L2)
         break
+# 5.对调两个变量的值
+a = 10
+b = 20
+a, b = b, a   # 序列解包赋值
+print(a, b)
 
 
