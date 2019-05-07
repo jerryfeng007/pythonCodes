@@ -61,6 +61,9 @@ print(c)
 s = 'hello_world_jerry'
 s1 = s.split('_')
 print('s1=', s1)
+s = 'hello world jerry'
+s1 = s.split(' ')
+print('s1=', s1)
 
 # 字符串中的特殊字符
 # \n 换行  \r 回车
@@ -75,6 +78,9 @@ age = 18
 f1 = 1.85
 print('%s is %d years old' % (name, age))
 print('身高为%f，保留2位小数是%.2f' % (f1, f1))
+# 还可以使用format
+print('{} is {} years old'.format(name, age))
+print(f'{name} is {age} years old')
 
 # 字符串的索引
 '''
@@ -92,11 +98,13 @@ print(s[::-1])  # 反转
 print(s[4:1:-1])  # -代表从右往左，从4开始，取的1的前一位
 print(s[-1:-4:-1])  # -代表从右往左，从-1开始，取的-4的前一位
 print(s[4:1:1])  # 空，因为取不到
-# 字符串的方法--strip()
+
+# 字符串的方法--strip()  默认去除两边的空格，去除内容可以指定
 # s1 = input('请输入一个数字：').strip()
 # print(s1)
 s2 = '   hello   '.strip()
 print(s2)
+
 # 字符串的方法--查找
 # find 和 index功能类似，都是返回要找的字符的索引，区别是如果找不到时，find返回-1，index会报错
 s3 = 'hello'
@@ -125,6 +133,26 @@ print(s.islower())
 print(s.isupper())
 print(s.startswith('h'))
 print(s.endswith('d'))
+print(s.isspace())
+
+# 字符串的编码、解码
+# ASCII码
+print(ord('A'))
+print(chr(65))
+
+s = '马云非'
+s1 = s.encode('gbk')
+s2 = s.encode('utf8')
+print(s1)
+print(s2)
+s3 = s1.decode('gbk')
+s4 = s2.decode('utf8')
+print(s3)
+print(s4)
+
+# 字符串长度
+s = 'jerry'
+print(len(s))
 
 # input() ------用户输入的任何内容，都当做字符串
 name = input('请输入您的姓名：')
