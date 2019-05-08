@@ -184,12 +184,15 @@ student_name_list = ['Tom', 'Jerry', 'Lucy']
 # 列表的定义
 # 方式1
 list1 = [1, 2, 3]
+
 # 方式2，把字符串转变为列表
 list2 = list('abcde')
 print(list2)
+
 # 把列表转化为字符串
 s = ''.join(list2)
 print(s)
+
 # 列表的索引
 list2 = [1, 2, 3, 4, 5]
 print(list2[0])
@@ -201,9 +204,11 @@ print(list2[::-1])  # 反转
 print(list2[4:1:-1])
 print(list2[-1:-4:-1])
 print(list2[4:1:1])  # 空，因为取不到
+
 # 列表的修改
 list2[0] = 'a'
 print(list2)
+
 # 列表的添加
 list3 = [1, 2]
 list3.append(3)
@@ -213,6 +218,13 @@ list3.extend('tom')  # 分别把t、o、m插入尾部
 print(list3)
 list3.insert(1, 'kk')
 print(list3)
+
+# 列表的相加
+list1 = [1, 2, 3]
+list2 = [4, 5]
+list3 = list1 + list2
+print(list3)
+
 # 列表的删除
 list3.pop()
 print(list3)
@@ -223,28 +235,37 @@ print(list3)
 del list3[4]
 print(list3)
 # del list3
+
 # 列表的查找（不同于字符串，列表只有count和index，没有find）
 list3 = [1, 2, 3, 4, 5, 1, 2, 1, 3, 1]
 print(list3.count(1))
 print(list3.index(5))  # 返回索引，如果不存在就会报错
+print(6 in list3)
+
 # 列表的排序
 list4 = [1, 2, 9, 4, 0]
 list4.sort()  # 升序
 # list4.sort(reverse=True)  # 降序
 print(list4)
+
+# 反转
 list5 = [1, 2, 'a', 'b']
-list5.reverse()  # 反转
+list5.reverse()
 print(list5)
+
 # 元组-------------------------------------------------------------------------------------------------------------元组
 # 元组的定义
 # 方式1
 tuple1 = (1, 2, 3, 4)
+
 # 方式2，把字符串转化为元组
 tuple2 = tuple('abcde')
 print(tuple2)
+
 # 把元组转化为字符串，跟列表转化为字符串一样，也是用''.join()函数
 s = ''.join(tuple2)
 print(s)
+
 # 元组的索引
 tuple3 = tuple('hello')
 print(tuple3[0])

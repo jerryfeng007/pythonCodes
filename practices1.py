@@ -4,11 +4,17 @@ print(s[::-1])
 
 # 2.列表反转
 list1 = [1, 2, 3, 2, 5, 4]
+# 方法1：
+print(list1[::-1])
+# 方法2：
 list1.reverse()
 print(list1)
 
 # 3.元组的反转
 tuple1 = (1, 2, 1, 4, 3)
+# 方法1
+print(tuple1[::-1])
+# 方法2
 s = ''
 for s1 in tuple1:
     s = str(s1) + s
