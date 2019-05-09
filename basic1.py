@@ -155,8 +155,8 @@ s = 'jerry'
 print(len(s))
 
 # input() ------用户输入的任何内容，都当做字符串
-name = input('请输入您的姓名：')
-print(name)
+# name = input('请输入您的姓名：')
+# print(name)
 
 # 变量------------------------------------------------------------------------------------------------------
 # 赋值的3种方式
@@ -219,12 +219,6 @@ print(list3)
 list3.insert(1, 'kk')
 print(list3)
 
-# 列表的相加
-list1 = [1, 2, 3]
-list2 = [4, 5]
-list3 = list1 + list2
-print(list3)
-
 # 列表的删除
 list3.pop()
 print(list3)
@@ -235,6 +229,12 @@ print(list3)
 del list3[4]
 print(list3)
 # del list3
+
+# 列表的相加
+list1 = [1, 2, 3]
+list2 = [4, 5]
+list3 = list1 + list2
+print(list3)
 
 # 列表的查找（不同于字符串，列表只有count和index，没有find）
 list3 = [1, 2, 3, 4, 5, 1, 2, 1, 3, 1]
@@ -309,9 +309,10 @@ index如果找不到会报错，find找不到返回-1
 列表是有序的，可修改的
 元组是有序的，不可修改的
 字典是无序的，可修改的
+集合是无序的，不允许重复的
 
 总结：
-只有字典是无序的
+字典、集合是无序的
 因为字典无序，所以没有索引
 数字、字符串、元组不可修改，列表、字典可修改
 
@@ -325,43 +326,130 @@ index如果找不到会报错，find找不到返回-1
 # 方式1
 dict1 = {'a': 1, 'b': 2}
 print(dict1)
+
 # 方式2
 dict2 = {}.fromkeys('abcde')
 print(dict2)
 dict3 = {}.fromkeys('abcde', 'hello')
 print(dict3)
+
 # 方式3，使用dict()
 zip1 = zip('abcdefg', '12345')
 dict4 = dict(zip1)
 print(dict4)
+
 # 字典的方法
 dict1 = {'a': 1, 'b': 2, 'c': 3}
 print(dict1.keys())
 print(dict1.values())
-# 可以把keys和values转化为列表，然后for循环去遍历
-keys = list(dict1.keys())
-values = list(dict1.values())
-print(keys)
-print(values)
-for key in keys:
+
+# 可以for循环去遍历keys和values
+for key in dict1.keys():
     print(key, dict1[key])
 
-# 字典的取值
-dict1 = {'a': 1, 'b': 2, 'c': 3}
-print(dict1['a'])      # 取不到时，会报错
-print(dict1.get('d'))  # 取不到时，不会报错
+# in
+dict5 = {'aa': 11, 'bb': 22, 'cc': 33}
+print('bb' in dict5)  # 只判断值是否在
+
+# for in 遍历
+dict6 = {'aa': 11, 'bb': 22, 'cc': 33}
+for i in dict6:
+    print(i, dict6[i])
+
 # 字典的方法
 dict1 = {'a': 1, 'b': 2, 'c': 3}
-dict1.update({'a': 1})
+dict1.update({'a': 1})  # 不变
 print(dict1)
-dict1.update({'a': 11})
+dict1.update({'a': 11})  # 修改
 print(dict1)
 dict1.update({'x': 1})  # 不存在x键，会创建一个
 print(dict1)
+
 # update方法一般做什么用呢？----拼接
 dict1 = {'a': 1, 'b': 2, 'c': 3}
 dict2 = {'d': 4}
 dict1.update(dict2)
 print(dict1)
+
+# 字典的添加
+dict3 = {'a': 1, 'b': 2, 'c': 3}
+dict3['d'] = 'tom'  # 没有该键，就新增一个
+
+# 字典的修改
+dict3['c'] = 'jerry'
+print(dict3)
+
+# 字典的删除
+# del
+dict4 = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7}
+del dict4['b']
+print(dict4)
+
+# pop
+dict4.pop('f')
+print(dict4)
+
+# popitem
+dict4.popitem()
+print(dict4)
+
+# clear
+dict4.clear()
+print(dict4)
+
+# 字典的取值
+dict1 = {'a': 1, 'b': 2, 'c': 3}
+print(dict1['a'])      # 返回该键值, 取不到时，会报错
+
+print(dict1.get('d'))  # 返回该键值, 取不到时，不会报错
+
+print(dict1.get('d', 'ff'))  # 返回该键值, 取不到时，给一个默认值，编程中经常用的一种情况，但dict1不变
+print(dict1)
+
+print(dict1.setdefault('nn'))  # 返回该键值，取不到时，不会报错
+
+dict1.setdefault('e')  # 如果没有该键，加一个，默认值None
+print(dict1)
+
+dict1.setdefault('f', '贾跃亭')  # 如果没有该键，加一个，并设默认值，dict1会变
+print(dict1)
+
+# items()
+dict1 = {'a': 1, 'b': 2, 'c': 3}
+print(dict1.items())
+
+l = tuple(dict1.items())  # 把键和值都放入了一个元组
+print(l)
+
+ll = list(dict1.items())  # 把键和值都放入了一个列表
+print(ll)
+
+dict1 = {'a': 1, 'b': 2, 'c': 3}
+lll = list(dict1)  # 把所以键放入一个列表
+print(lll)
+
+# len()
+dict1 = {'a': 1, 'b': 2, 'c': 3}
+print(len(dict1))
+
+# 集合-----------------------------------------------------------------------------------------------------------------------
+'''
+集合用{}表示，set表示，跟字典一样，都是无序的，并且不允许重复
+'''
+set1 = {1, 2, 3}
+print(set1)
+set2 = set('abcde')
+print(set2)
+
+
+
+
+
+
+
+
+
+
+
 
 
