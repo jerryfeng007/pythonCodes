@@ -513,8 +513,64 @@ a %= 1
 >  <   ==   >=    <=   !=
 '''
 
+# 流程控制三兄弟：if for while ---------------------------------------------------------------------------------------------
+# if语句：注意，要减少不必要的判断，比如以下：
+a = 5
+if a > 4:
+    print('a大于4')
+elif a > 3:
+    print('a大于3')
+else:
+    print('a大于2')
 
+# 第一种方式，满足if条件之后，就不会再判断elif和else了
+'''
+if xxx:
+    xxxx
+elif xxx:
+    xxxx
+else:
+    xxxx
+'''
 
+# 第二种方式，每一个if都会判断
+'''
+if xxx:
+    xxxx
+if xxxxx:
+    xxxxxx
+if xxxxx:
+    xxxxxxx
+'''
+
+# for循环
+# 使用range
+for i in range(3):
+    print(i)
+
+for i in range(2, 10):
+    print(i, end='_')  # print函数，使用了end
+
+print()  # 换行
+
+# 不使用range
+for i in [1, 2, 3]:
+    print(i, end=' ')
+
+print()   # 换行
+
+# 可迭代对象
+# 字符串、列表、元组、集合
+
+# 特殊的for循环
+a = [(1, 2), (3, 4)]
+# 方式1
+for i in a:
+    print(i[0])
+
+# 方式2
+for i, j in a:
+    print('i=', i, 'j=', j)
 
 
 
