@@ -64,6 +64,40 @@ if ((year % 4 == 0) and (year % 100 != 0)) or (year % 400 == 0):
 else:
     print(f'{year}年不是闰年')
 
+# 7.九九乘法表
+'''
+1x1=1
+1x2=2 2x2=4
+1x3=3 2x3=6 3x3=9  
+'''
+
+'''
+# 1x3=3 2x3=6 3x3=9  以这一行为例
+j = 3  # 先写死
+for i in range(1, 4):
+    print(f'{i}x{j}={i*j}', end=' ')
+'''
+
+# 再上面的基础上，把j变活，j的取值范围是1-9
+for j in range(1, 10):
+    for i in range(1, j+1):
+        print(f'{i}x{j}={i*j}', end=' ')
+    print()  # 换行
+
+# 8.打印以下：
+# *
+# **
+# ***
+# ****
+# *****
+n = int(input('请输入你想要的数字：').strip())
+i = 1
+while i <= n:
+    print('*' * i)
+    i += 1
+
+
+
 
 
 
