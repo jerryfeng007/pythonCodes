@@ -96,6 +96,16 @@ while i <= n:
     print('*' * i)
     i += 1
 
+# 9.练习
+# 取到1/4/7
+l = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+l1 = [i[0] for i in l]
+print(l1)
+
+# 取到1/5/9
+l2 = [l[i][i] for i in range(len(l))]
+print(l2)
+
 
 
 

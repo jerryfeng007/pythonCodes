@@ -592,6 +592,59 @@ while i < 5:
     print(i)
     i += 1
 
+# 流程控制词：pass  continue   break--------------------------------------------------------------------------------------------
+# pass  占位
+for i in range(3):
+    pass
+
+# break 跳出循环
+name = 'jerry'
+for i in name:
+    if i == 'e':
+        break
+    print(i)
+
+a = 0
+while a < 5:
+    a += 1
+    if a == 3:
+        break
+    print(a)
+
+# continue # 结束本次循环，继续进行下一次循环
+name = 'jerry'
+for i in name:
+    if i == 'e':
+        continue
+    print(i)
+
+a = 0
+while a < 5:
+    a += 1
+    if a == 3:
+        continue
+    print(a)
+
+# 非列表推导式
+list2 = []
+for i in range(10):
+    list2.append(i)
+print(list2)
+
+# 列表推导式---更简单，执行效率高
+list1 = [i for i in range(10)]
+print(list1)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
