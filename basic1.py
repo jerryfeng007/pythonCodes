@@ -635,6 +635,23 @@ print(list2)
 list1 = [i for i in range(10)]
 print(list1)
 
+# 深浅拷贝
+'''
+深拷贝：拷贝所有对象，包括顶级对象、嵌套对象，所有原始对象的改变不会造成深拷贝里任何子元素的改变
+浅拷贝：只拷贝顶级对象，不拷贝嵌套对象，所以原始数据改变，嵌套对象会改变
+'''
+import copy
+a = [1, 2, 3, [4, 5]]
+b = copy.deepcopy(a)
+c = copy.copy(a)
+print(b)
+print(c)
+
+a[3].append(6)  # 会影响浅拷贝，不会影响深拷贝
+a.append(7)  # 既不影响浅拷贝，也不影响深拷贝
+print(a)
+print(b)
+print(c)
 
 
 
