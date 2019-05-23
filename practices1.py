@@ -57,12 +57,12 @@ print(a, b)
 普通闰年：能被4整除，但不能被100整除的年份（如2004是闰年，1999不是闰年）
 世纪闰年：能被400整除的为世纪闰年（如2000年是闰年，1900年不是）
 '''
-year = input('请输入一个年份：').strip()
-year = int(year)
-if ((year % 4 == 0) and (year % 100 != 0)) or (year % 400 == 0):
-    print(f'{year}年是闰年')
-else:
-    print(f'{year}年不是闰年')
+# year = input('请输入一个年份：').strip()
+# year = int(year)
+# if ((year % 4 == 0) and (year % 100 != 0)) or (year % 400 == 0):
+#     print(f'{year}年是闰年')
+# else:
+#     print(f'{year}年不是闰年')
 
 # 7.九九乘法表
 '''
@@ -90,11 +90,11 @@ for j in range(1, 10):
 # ***
 # ****
 # *****
-n = int(input('请输入你想要的数字：').strip())
-i = 1
-while i <= n:
-    print('*' * i)
-    i += 1
+# n = int(input('请输入你想要的数字：').strip())
+# i = 1
+# while i <= n:
+#     print('*' * i)
+#     i += 1
 
 # 9.练习
 # 取到1/4/7
@@ -106,12 +106,43 @@ print(l1)
 l2 = [l[i][i] for i in range(len(l))]
 print(l2)
 
+# 10.计算圆的周长和面积
+# 初级版
+# r = float(input('请输入圆的半径：'))  # 这里可以用int、float、eval
+# if r > 0:
+#     zhouchang = 2 * 3.1415926 * r
+#     area = 3.1415926 * r ** 2
+#     print('圆的周长为：%.2f' % zhouchang)
+#     print('圆的面积为：%.2f' % area)
+# else:
+#     print('半径不能为负数或者0')
 
+# 升级版---解决输入非数字报错的问题
+# while True:
+#     try:
+#         r = float(input('请输入圆的半径：'))  # 这里可以用int、float、eval
+#         if r > 0:
+#             zhouchang = 2 * 3.1415926 * r
+#             area = 3.1415926 * r ** 2
+#             print('圆的周长为：%.2f' % zhouchang)
+#             print('圆的面积为：%.2f' % area)
+#             break
+#         else:
+#             print('半径不能为负数或者0')
+#     except Exception as e:
+#         print('输入必须为整数或者小数')
 
+# 11.输入两个数，求和
+# num1 = int(input('输入第一个数：'))
+# num2 = int(input('输入第二个数：'))
+# print('他们的和为：', num1 + num2)
 
-
-
-
+# 升级版，在一行输入这两个数
+num1, num2 = eval(input('请输入两个数，以英文逗号分割：'))
+print(num1 + num2)
+'''
+以上使用了eval()函数，括号里必须为字符串，它把字符串转化为别的（去掉字符串两边的引号）
+'''
 
 
 
