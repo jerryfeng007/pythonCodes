@@ -16,10 +16,35 @@ if __name__ == '__main__':
 # print函数
 print('aaa')  # 换行
 print('sss', end='')  # 不换行
+print()
 
+# 日期和时间-----------------------------------------------datetime----------------------------------------------------------
+from datetime import datetime
+print(datetime.now())
+print(datetime.today())
+print(datetime.now().day)
+print(datetime.today().day)
+print(datetime.now().month)
+print(datetime.today().month)
+print(datetime.now().year)
+print(datetime.today().year)
+print(datetime.now().hour)
+print(datetime.today().hour)
+print(datetime.now().minute)
+print(datetime.today().minute)
+print(datetime.now().second)
+print(datetime.today().second)
+print(datetime.now().microsecond)
+print(datetime.today().microsecond)
+print(datetime.now().date())
+print(datetime.today().date())
+print(datetime.now().time())
+print(datetime.today().time())
 
-
-
+# 格式化时间---------------------------------datetime.ctime()  和 datetime.strftime()-----------------------------------
+print(datetime.now())  # 当前时间---返回datetime类型
+print(datetime.now().ctime())  # 格式化当前时间---返回字符串类型
+print(datetime.now().strftime('%Y-%m-%d %H:%M:%S'))  # 格式化当前时间---返回字符串类型，需要什么字段，就%什么字段
 
 
 
