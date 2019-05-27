@@ -138,11 +138,55 @@ print(l2)
 # print('他们的和为：', num1 + num2)
 
 # 升级版，在一行输入这两个数
-num1, num2 = eval(input('请输入两个数，以英文逗号分割：'))
-print(num1 + num2)
+# num1, num2 = eval(input('请输入两个数，以英文逗号分割：'))
+# print(num1 + num2)
 '''
 以上使用了eval()函数，括号里必须为字符串，它把字符串转化为别的（去掉字符串两边的引号）
 '''
+
+# 12.输入一个三位数，然后输出每个位置的数字（比如输入719，显示：百位数字：7，十位数字：1，个位数字：9）
+# num = input('请输入一个三位数：')
+# if num.isdigit():
+#     if len(num) == 3:
+#         num = int(num)
+#         print(f'百位数字是：{num//100}，十位数字是：{num%100//10}，个位数字是：{num%10}')
+#     else:
+#         print('输入的不是三位数！')
+# else:
+#     print('输入必须为数字！')
+
+# 方法2
+# num = input('请输入一个三位数：')
+# if num.isdigit():
+#     if len(num) == 3:
+#         print(f'百位数字是：{num[0]}，十位数字是：{num[1]}，个位数字是：{num[2]}')
+#     else:
+#         print('输入的不是三位数！')
+# else:
+#     print('输入必须为数字！')
+
+# 13.编程实现145893秒是几天几小时几分几秒
+total_seconds = 145893
+day = int(total_seconds/60/60//24)
+hour = total_seconds//3600-day * 24
+min = total_seconds//60 - hour * 60 - day * 24 * 60
+sec = total_seconds - day * 24 * 3600 - hour * 3600 - min * 60
+print(f'{total_seconds}秒是{day}天{hour}小时{min}分{sec}秒')
+
+# 14.用户依次输入语文、数学、英语，输出总分和平均分
+score = eval(input('请分别输入语文、数学、英语分数，以英文逗号分割：'))
+print(f'总分为：{sum(score)},平均分为：{sum(score)/3}')
+
+
+
+
+
+
+
+
+
+
+
 
 
 
