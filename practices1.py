@@ -174,13 +174,79 @@ sec = total_seconds - day * 24 * 3600 - hour * 3600 - min * 60
 print(f'{total_seconds}秒是{day}天{hour}小时{min}分{sec}秒')
 
 # 14.用户依次输入语文、数学、英语，输出总分和平均分
-score = eval(input('请分别输入语文、数学、英语分数，以英文逗号分割：'))
-print(f'总分为：{sum(score)},平均分为：{sum(score)/3}')
+# score = eval(input('请分别输入语文、数学、英语分数，以英文逗号分割：'))
+# # print(f'总分为：{sum(score)},平均分为：{sum(score)/3}')
+# print('总分为：%.1f,平均分为：%.1f' % (sum(score), sum(score)/3))
 
+# 15.输入三个互不相等的整数，按照从小到大输出
+# a = eval(input('输入三个互不相等的整数，以英文逗号分割：'))
+# if a[0] == a[1] or a[1] == a[2] or a[0] == a[2]:
+#     print('请输入三个互不相等的数！')
+# else:
+#     if a[0] > a[1] > a[2]:
+#         print(a[2], a[1], a[0])
+#     elif a[0] > a[2] > a[1]:
+#         print(a[1], a[2], a[0])
+#     elif a[1] > a[2] > a[0]:
+#         print(a[0], a[2], a[1])
+#     elif a[1] > a[0] > a[2]:
+#         print(a[2], a[0], a[1])
+#     elif a[2] > a[1] > a[0]:
+#         print(a[0], a[1], a[2])
+#     elif a[2] > a[0] > a[1]:
+#         print(a[1], a[0], a[2])
 
+# 方法2
+# a = eval(input('输入三个互不相等的整数，以英文逗号分割：'))
+# if a[0] == a[1] or a[1] == a[2] or a[0] == a[2]:
+#     print('请输入三个互不相等的数！')
+# else:
+#     if max(a) == a[0]:
+#         if a[1] > a[2]:
+#             print(a[2], a[1], a[0])
+#         else:
+#             print(a[1], a[2], a[0])
+#     elif max(a) == a[1]:
+#         if a[2] > a[0]:
+#             print(a[0], a[2], a[1])
+#         else:
+#             print(a[2], a[0], a[1])
+#     elif max(a) == a[2]:
+#         if a[1] > a[0]:
+#             print(a[0], a[1], a[2])
+#         else:
+#             print(a[1], a[0], a[2])
 
+# 方法3
+# a = eval(input('输入三个互不相等的整数，以英文逗号分割：'))
+# if a[0] == a[1] or a[1] == a[2] or a[0] == a[2]:
+#     print('请输入三个互不相等的数！')
+# else:
+#     b = sorted(a)
+#     print(b[0], b[1], b[2])
 
+# 16.登录的判断
+# 提示输入用户名和密码，如果用户名等于Admin，密码为123，提示登录成功，
+# 如果用户名不是Admin，提示用户名不存在
+# 如果密码不等于123，提示密码错误
+# username = input('请输入用户名：')
+# pwd = input('请输入密码：')
+# if username != 'Admin':
+#     print('用户名不存在')
+# elif pwd != '123':
+#     print('密码错误')
+# elif username == 'Admin' and pwd == '123':
+#     print('登录成功')
 
+# 17.输入张三的语文、数学成绩，输出以下判断是否正确，正确（True）,错误（False）
+# 张三的语文和数学都大于90分
+yuwen = float(input('请输入语文成绩：'))
+shuxue = float(input('请输入数学成绩：'))
+print(yuwen > 90 and shuxue > 90)
+# 张三的语文和数学有一门大于90分
+print(yuwen > 90 or shuxue > 90)
+
+# 18.
 
 
 
