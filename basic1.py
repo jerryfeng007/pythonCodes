@@ -173,6 +173,12 @@ name = user = 'Tom'
 print(id(name))
 print(id(user))
 
+# is is not
+'''
+只有当id(a) id(b) 相等的时候， a is b 才是真的
+'''
+print('哈哈哈！', name is user)
+
 # 关键字列表
 import keyword
 print(keyword.kwlist)

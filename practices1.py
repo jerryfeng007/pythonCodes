@@ -225,6 +225,18 @@ print(f'{total_seconds}秒是{day}天{hour}小时{min}分{sec}秒')
 #     b = sorted(a)
 #     print(b[0], b[1], b[2])
 
+# 方法4
+# list1 = []
+# a1, a2, a3 = eval(input('输入三个互不相等的整数，以空格分割：'))
+# if a1 == a2 or a1 == a3 or a2 == a3:
+#     print('请输入三个互不相等的数！')
+# else:
+#     list1.append(int(a1))
+#     list1.append(int(a2))
+#     list1.append(int(a3))
+#     list1.sort()
+#     print(list1)
+
 # 16.登录的判断
 # 提示输入用户名和密码，如果用户名等于Admin，密码为123，提示登录成功，
 # 如果用户名不是Admin，提示用户名不存在
@@ -240,14 +252,38 @@ print(f'{total_seconds}秒是{day}天{hour}小时{min}分{sec}秒')
 
 # 17.输入张三的语文、数学成绩，输出以下判断是否正确，正确（True）,错误（False）
 # 张三的语文和数学都大于90分
-yuwen = float(input('请输入语文成绩：'))
-shuxue = float(input('请输入数学成绩：'))
-print(yuwen > 90 and shuxue > 90)
-# 张三的语文和数学有一门大于90分
-print(yuwen > 90 or shuxue > 90)
+# yuwen = float(input('请输入语文成绩：'))
+# shuxue = float(input('请输入数学成绩：'))
+# print(yuwen > 90 and shuxue > 90)
+# # 张三的语文和数学有一门大于90分
+# print(yuwen > 90 or shuxue > 90)
 
-# 18.
+# 18.输入一个时间(比如，13:12:11)，实现以下需求：
+# 对输入的时间进行有效性判断
+# 计算时分秒数字之和
+# 把输入的时间时常转化为秒，并输出
+# 输入的时间再过18888秒后的时间是多少
+time = input('请输入一个时间，比如13:12:11')
+hour = time[0:2]
+min = time[3:5]
+sec = time[6:8]
+hour = int(hour)
+min = int(min)
+sec = int(sec)
+if not (0 <= hour <= 23 and 0 <= min <= 59 and 0 <= sec <= 59):
+    print('输入的时间无效，请重新输入')
+else:
+    print('时分秒数字之和为：', hour + min + sec)
+    secs = hour * 3600 + min * 60 + sec
+    print('输入的时间转化为秒是：', secs)
+    secs += 18888
+    print('输入的时间再过18888秒之后是%d秒' % secs)
+    hour = secs//3600
+    min = secs // 60 - hour * 60
+    sec = secs - min * 60 - hour * 3600
+    print('输入的时间再过18888秒之后是%d小时%d分钟%d秒' % (hour, min, sec))
 
+# 方法2
 
 
 
