@@ -259,6 +259,22 @@ list5 = [1, 2, 'a', 'b']
 list5.reverse()
 print(list5)
 
+# 列表的遍历
+# while
+list1 = [1, 2, 3, 4]
+i = 0
+while i < len(list1):
+    print(list1[i])
+    i += 1
+
+# for
+for i in list1:
+    print(i)
+
+# for
+for i in range(len(list1)):
+    print(list1[i])
+
 # 元组-------------------------------------------------------------------------------------------------------------元组
 # 元组的定义
 # 方式1

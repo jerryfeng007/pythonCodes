@@ -759,27 +759,56 @@ for i in range(1, 51):
 # 4.如果在5次内没猜对，提示'很遗憾，没有猜对'
 # 5.并显示正确的数字
 import random
-n = random.randint(1, 100)
-c = 0
-while True:
-    c += 1
-    if c <= 5:
-        a = eval(input('您猜的数字为：'))
-        if a > n:
-            print('你猜的数字大了')
-            continue
-        elif a < n:
-            print('你猜的数字小了')
-            continue
-        elif a == n:
-            print('恭喜你，猜对了')
-            break
-    else:
-        print('很遗憾，没有猜对')
-        break
+# n = random.randint(1, 100)
+# c = 0
+# while True:
+#     c += 1
+#     if c <= 5:
+#         a = eval(input('您猜的数字为：'))
+#         if a > n:
+#             print('你猜的数字大了')
+#             continue
+#         elif a < n:
+#             print('你猜的数字小了')
+#             continue
+#         elif a == n:
+#             print('恭喜你，猜对了')
+#             break
+#     else:
+#         print('很遗憾，没有猜对')
+#         break
+#
+# print('正确的数字为：', n)
 
-print('正确的数字为：', n)
+# 方法2
+# n = random.randint(1, 100)
+# print('正确的数字为：', n)
+# for i in range(5):
+#     a = eval(input(f'第{i+1}次，您猜的数字为：'))
+#     if a == n:
+#         print('恭喜你，猜对了')
+#         break
+#     elif a > n:
+#         if i < 4:
+#             print('你猜的数字大了')
+#         else:
+#             print('你猜的数字大了')
+#             print('很遗憾，您猜了5次，没有猜对')
+#     elif a < n:
+#         if i < 4:
+#             print('你猜的数字小了')
+#         else:
+#             print('你猜的数字小了')
+#             print('很遗憾，您猜了5次，没有猜对')
+# print('正确的数字为：', n)
 
+# 41.输入学生的数量，依次输入学生的成绩，打印出所有的成绩
+# list1 = []
+# n = eval(input('输入学生的数量：'))
+# for i in range(0, n):
+#     b = eval(input('依次输入学生的成绩：'))
+#     list1.append(b)
+# print(list1)
 
 
 
