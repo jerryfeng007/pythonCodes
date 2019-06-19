@@ -1,25 +1,3 @@
-# 1.字符串反转
-s = 'HelloWorld'
-print(s[::-1])
-
-# 2.列表反转
-list1 = [1, 2, 3, 2, 5, 4]
-# 方法1：
-print(list1[::-1])
-# 方法2：
-list1.reverse()
-print(list1)
-
-# 3.元组的反转
-tuple1 = (1, 2, 1, 4, 3)
-# 方法1
-print(tuple1[::-1])
-# 方法2
-s = ''
-for s1 in tuple1:
-    s = str(s1) + s
-    print(s)
-
 # 4.删除列表中所有的1
 # 方法1：这个方法的坏处，是把所有的元素都去重了，所以结果可能不正确
 L = [1, 2, 3, 1, 3, 1, 5, 1]
@@ -63,26 +41,6 @@ print(a, b)
 #     print(f'{year}年是闰年')
 # else:
 #     print(f'{year}年不是闰年')
-
-# 7.九九乘法表
-'''
-1x1=1
-1x2=2 2x2=4
-1x3=3 2x3=6 3x3=9  
-'''
-
-'''
-# 1x3=3 2x3=6 3x3=9  以这一行为例
-j = 3  # 先写死
-for i in range(1, 4):
-    print(f'{i}x{j}={i*j}', end=' ')
-'''
-
-# 再上面的基础上，把j变活，j的取值范围是1-9
-for j in range(1, 10):
-    for i in range(1, j+1):
-        print(f'{i}x{j}={i*j}', end=' ')
-    print()  # 换行
 
 # 8.打印以下：
 # *
@@ -638,38 +596,6 @@ print(f'{total_seconds}秒是{day}天{hour}小时{min}分{sec}秒')
 #     if i == int(str(i)[0]) ** 3 + int(str(i)[1]) ** 3 + int(str(i)[2]) ** 3:
 #         print('i=', i)
 
-# 35.9x9乘法表
-'''
-1x1=1
-1x2=2 2x2=4
-1x3=3 2x3=6 3x3=9  
-'''
-# 考虑方式1:
-# 1x3=3 2x3=6 3x3=9  # 先实现这一行
-# 第一步
-# i = 3
-# for j in range(1, 4):
-#     print(f'{j}x{i}={j * i}', end=' ')
-# print()  # 需要加一个空行
-
-# 第二步
-# 在上面的基础上，把i变活，i取值1-9，需要注意与j的关系
-# for i in range(1, 10):
-#     for j in range(1, i+1):
-#         print(f'{j}x{i}={j * i}', end=' ')
-#     print()  # 需要加一个空行
-
-# 考虑方式2:
-'''
-共有9行,用i表示,range(1, 10)
-共有9列,用j表示,第1行有1列,第2行有2列,第3行有3列
-i为1的时候, j需要为2, 即: for j in range(1, i+1)
-'''
-# for i in range(1, 10):
-#     for j in range(1, i+1):
-#         print(f'{j}x{i}={i * j}', end=' ')  # 这里不换行
-#     print()  # 这里换行
-
 '''---------------------------------------------------------------------------有难度---------------------------------------------
 # 36.100元买2元的铅笔，5元的铅笔盒，10元的文件夹，15元的彩笔，刚好花完，每样物品至少有一种，一共有多少种可能？打印出每一种组合
 times = 0
@@ -809,6 +735,54 @@ import random
 #     b = eval(input('依次输入学生的成绩：'))
 #     list1.append(b)
 # print(list1)
+
+# 42.随机生成10个三位的整数，打印出大于500的元素
+# list1 = []
+# list2 = []
+# for i in range(10):
+#     a = random.randint(100, 999)  # 注意，这里能取到999
+#     list2.append(a)
+#     if a > 500:
+#         list1.append(a)
+# print(list1)
+# print(list2)
+
+# 43. 输入一个数字，转换成中文数字
+# 比如， 1234567890 --> 壹 贰 叁 肆 伍 陆 柒 捌 玖 零
+# 方法1
+# tuple1 = (1, 2, 3, 4, 5, 6, 7, 8, 9, 0, '.')
+# tuple2 = ('壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖', '零', '点')
+# num = input('请输入一个数：')
+# for i in num:
+#     if i == '.':
+#         num_index = tuple1.index(i)
+#     else:
+#         num_index = tuple1.index(int(i))
+#     value = tuple2[num_index]
+#     print(value, end='')
+
+# 方法2
+# tuple2 = ('零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖')
+# num = input('请输入一个数：')
+# for i in num:
+#     if i == '.':
+#         print('点', end='')
+#     else:
+#         print(tuple2[int(i)], end='')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

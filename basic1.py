@@ -215,7 +215,7 @@ print(list2[4:1:1])  # 空，因为取不到
 list2[0] = 'a'
 print(list2)
 
-# 列表的添加
+# 列表的添加 append  extend  insert
 list3 = [1, 2]
 list3.append(3)
 list3.append([11, 22, 33])
@@ -225,7 +225,7 @@ print(list3)
 list3.insert(1, 'kk')
 print(list3)
 
-# 列表的删除
+# 列表的删除  pop remove  del  clear
 list3.pop()
 print(list3)
 list3.pop(5)
@@ -242,17 +242,27 @@ list2 = [4, 5]
 list3 = list1 + list2
 print(list3)
 
+# 列表的计算  max  min  sum
+list1 = [1, 2, 3, 4, 5]
+print(max(list1))
+print(min(list1))
+print(sum(list1))
+
 # 列表的查找（不同于字符串，列表只有count和index，没有find）
 list3 = [1, 2, 3, 4, 5, 1, 2, 1, 3, 1]
 print(list3.count(1))
 print(list3.index(5))  # 返回索引，如果不存在就会报错
 print(6 in list3)
 
-# 列表的排序
+# 列表的排序  sort  reverse   sorted
 list4 = [1, 2, 9, 4, 0]
 list4.sort()  # 升序
-# list4.sort(reverse=True)  # 降序
 print(list4)
+list4 = [1, 2, 9, 4, 0]
+list4.sort(reverse=True)  # 降序
+print(list4)
+list4 = [1, 2, 9, 4, 0]
+print(sorted(list4))  # 不会改变存储的顺序
 
 # 反转
 list5 = [1, 2, 'a', 'b']
@@ -275,6 +285,13 @@ for i in list1:
 for i in range(len(list1)):
     print(list1[i])
 
+# copy
+l1 = [1, 2, 3]
+l2 = l1
+l3 = l1.copy()
+print(l1, l2, l3)  # 都等于[1, 2, 3]
+print(id(l1), id(l2), id(l3))  # 但，l3，的id不一样
+
 # 元组-------------------------------------------------------------------------------------------------------------元组
 # 元组的定义
 # 方式1
@@ -287,6 +304,12 @@ print(tuple2)
 # 把元组转化为字符串，跟列表转化为字符串一样，也是用''.join()函数
 s = ''.join(tuple2)
 print(s)
+
+# 元组的连接
+tuple10 = (1, 2, 3, 4)
+tuple2 = (5, 6, 7)
+tuple3 = tuple10 + tuple2
+print(tuple3)
 
 # 元组的索引
 tuple3 = tuple('hello')
@@ -303,6 +326,11 @@ print(tuple3[4:1:1])
 列表的索引，和字符串的索引不完全一样，因为可以通过列表的索引来修改列表
 元组的索引，和字符串的索引完全一样，因为字符串和元组都是不可修改的
 '''
+# 元组的排序 sorted()
+tuple9 = (3, 1, 0, -4, 6)
+print(sorted(tuple9))
+print(tuple9)
+
 # 元组的特性
 # 不加括号，默认是元组
 a = 1, 2
@@ -313,10 +341,13 @@ c = 1,
 d = (1)
 e = (1,)
 print(b, c, d, e)
-'''
-因为元组的方法比较少，而且元组不可以被修改，所以他的安全性和稳定性比较好，经常被作为配置文件的一部分
-如果只有一个元素，一定不要忘记加逗号， path = （pathname,）
-'''
+
+# max min sum
+tuple8 = (1, 2, 3)
+print(max(tuple8))
+print(min(tuple8))
+print(sum(tuple8))
+
 # 元组的方法
 tuple4 = ('a', 'b', 'c', 'a', 'e')
 print(tuple4.count('a'))
@@ -490,29 +521,6 @@ print(set2)
 set3.clear()
 print(set3)  # 显示空集合 set()
 
-'''总结----------------------------------------------------------------------------------------------------------------------
-字符串是有序的，不可修改的
-列表是有序的，可修改的
-元组是有序的，不可修改的
-字典是无序的，可修改的
-集合是无序的，可修改的，不允许重复的
-
-总结：
-字典、集合是无序的
-因为字典、集合无序，所以没有索引
-数字、字符串、元组不可修改，列表、字典、集合可修改
-
-字典的特点：
-因为字典是无序的，所以字典没有索引值
-因为字典没有索引值，所以字典以键取值
-因为字典以键取值，所以字典的键唯一且不可修改
-因为字典的键不可修改，所以列表和字典不可以给字典做键
-
-数据类型主要有：数字、字符串、列表、元组、字典、集合
-不可变类型：数字、字符串、元组
-可变类型：列表、字典、集合
-'''
-
 # python运算--------------------------------------------------------------------------------------------------------------
 # bool
 # true: 非0、非空
@@ -679,19 +687,3 @@ print(c)
 import basic2
 v3 = basic2.add(4, 6)
 print(v3)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
