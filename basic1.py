@@ -373,23 +373,19 @@ zip1 = zip('abcdefg', '12345')
 dict4 = dict(zip1)
 print(dict4)
 
+# key不可以重复，但value可以重复
+# 如果同一个key有多个，那么以最后一个为准
+dict5 = {'aa': 11, 'bb': 22, 'cc': 33, 'cc': 44}
+print(dict5)
+
 # 字典的方法
 dict1 = {'a': 1, 'b': 2, 'c': 3}
 print(dict1.keys())
 print(dict1.values())
 
-# 可以for循环去遍历keys和values
-for key in dict1.keys():
-    print(key, dict1[key])
-
 # in
 dict5 = {'aa': 11, 'bb': 22, 'cc': 33}
-print('bb' in dict5)  # 只判断值是否在
-
-# for in 遍历
-dict6 = {'aa': 11, 'bb': 22, 'cc': 33}
-for i in dict6:
-    print(i, dict6[i])
+print('bb' in dict5)  # 只判断key值是否在
 
 # 字典的方法
 dict1 = {'a': 1, 'b': 2, 'c': 3}
@@ -400,15 +396,15 @@ print(dict1)
 dict1.update({'x': 1})  # 不存在x键，会创建一个
 print(dict1)
 
-# update方法一般做什么用呢？----拼接
+# update: 拼接
 dict1 = {'a': 1, 'b': 2, 'c': 3}
 dict2 = {'d': 4}
 dict1.update(dict2)
 print(dict1)
 
 # 字典的添加
-dict3 = {'a': 1, 'b': 2, 'c': 3}
-dict3['d'] = 'tom'  # 没有该键，就新增一个
+dict4 = {'a': 1, 'b': 2, 'c': 3}
+dict4['d'] = 'tom'  # 没有该键，就新增一个
 
 # 字典的修改
 dict3['c'] = 'jerry'
@@ -420,15 +416,15 @@ dict4 = {'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5, 'f': 6, 'g': 7}
 del dict4['b']
 print(dict4)
 
-# pop
+# pop  根据key删除
 dict4.pop('f')
 print(dict4)
 
-# popitem
+# popitem  删除键值对，默认最后一个
 dict4.popitem()
 print(dict4)
 
-# clear
+# clear 清空
 dict4.clear()
 print(dict4)
 
@@ -449,6 +445,15 @@ print(dict1)
 dict1.setdefault('f', '贾跃亭')  # 如果没有该键，加一个，并设默认值，dict1会变
 print(dict1)
 
+# 可以for循环去遍历keys和values
+for key in dict1.keys():
+    print(key, dict1[key])
+
+# for in 遍历
+dict6 = {'aa': 11, 'bb': 22, 'cc': 33}
+for i in dict6:
+    print(i, dict6[i])
+
 # items()
 dict1 = {'a': 1, 'b': 2, 'c': 3}
 print(dict1.items())
@@ -466,6 +471,9 @@ print(lll)
 # len()
 dict1 = {'a': 1, 'b': 2, 'c': 3}
 print(len(dict1))
+
+# copy
+# 属于浅拷贝
 
 # 集合-----------------------------------------------------------------------------------------------------------------------
 '''

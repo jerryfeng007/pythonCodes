@@ -77,7 +77,77 @@ del student[max_index]    # 把学生列表中这次最大分数者删掉
 只有删除这次的值，下一次循环数据才不会重复。
 '''
 
-# 2.总结
+# 2.有10个学生，姓名自行添加，有三门考试，语文、数学、英语
+'''
+随机为他们生成分数【50，100】,打印一张成绩排名表,数据存储格式如下：
+95001:{'姓名': '张三', '名次': 4, '总分': 234, '明细': [67, 78, 89]},
+95001:{'姓名': '张三', '名次': 4, '总分': 234, '明细': [67, 78, 89]},
+95001:{'姓名': '张三', '名次': 4, '总分': 234, '明细': [67, 78, 89]},
+95001:{'姓名': '张三', '名次': 4, '总分': 234, '明细': [67, 78, 89]}
+'''
+# 思路，通过存储格式可以看出，需要存储在一个大字典里
+
+num = [95001, 95002, 95003, 95004, 95005, 95006, 95007, 95008, 95009, 95010]
+student = ['冯一', '曹二', '张三', '李四', '王五', '赵六', '田七', '马八', '包九', '崔十']
+kemu = ['语文', '数学', '英语']
+info = ['姓名', '名次', '总分', '明细']
+
+# 定义一个大字典，类似：
+# {95001:{'姓名': '张三', '名次': 4, '总分': 234, '明细': [67, 78, 89]},
+#  95002:{'姓名': '李四', '名次': 5, '总分': 233, '明细': [66, 78, 89]},...}
+dict_all = {}.fromkeys(num)
+
+# 把10个同学的三门成绩放入列表，格式为：[[], [], []]
+score = []
+for i in student:
+    score_temp = []
+    for j in kemu:
+       s = random.randint(50, 100)
+       score_temp.append(s)
+    score.append(score_temp)
+
+# 求总分
+sum_score = []
+for i in score:
+    sum_score.append(sum(i))
+
+# 排名
+print('学号    姓名   名次   语文   数学   外语   总分')
+print('=========================================================')
+for i in range(len(student)):
+    # 求总分的最大值
+    max_score = max(sum_score)
+    # 获取最大值的索引
+    max_index = sum_score.index(max_score)
+
+    # 根据该索引，获取不同列表中该学生的信息
+    xuehao = num[max_index]
+    name = student[max_index]
+    zongfen = max_score
+    mingxi = score[max_index]
+
+    # 把所有信息放入大字典
+    dict_all[xuehao] = {info[0]: name, info[1]: i+1, info[2]: zongfen, info[3]: mingxi}
+
+    # 打印
+    print(xuehao, end='\t')
+    print(name, end=' \t')
+    print(i+1, end=' \t  ')
+    print(mingxi[0], end='\t ')
+    print(mingxi[1], end='\t    ')
+    print(mingxi[2], end='\t   ')
+    print(zongfen)
+
+    # 删除本次的值，下一次循环从剩下的里面再次计算最大值
+    num.pop(max_index)
+    student.pop(max_index)
+    sum_score.pop(max_index)
+    score.pop(max_index)
+
+# 打印大字典
+# print(dict_all)
+
+# 3.总结
 '''----------------------------------------------------------------------------------------------------------------------
 数据类型主要有：数字、字符串、列表、元组、字典、集合
 不可变类型：数字、字符串、元组
@@ -108,7 +178,7 @@ del student[max_index]    # 把学生列表中这次最大分数者删掉
 因为元组的方法比较少，而且元组不可以被修改，所以他的安全性和稳定性比较好，经常被作为配置文件的一部分
 如果只有一个元素，一定不要忘记加逗号， path = （pathname,）
 ------------------------------------------------------------------------------------------------------------------------'''
-# 3.9x9乘法表
+# 4.9x9乘法表
 '''
 1x1=1 
 1x2=2 2x2=4 
@@ -137,7 +207,7 @@ for i in range(1, 10):
         print(f'{j}x{i}={j * i}', end=' ')
     print()  # 需要加一个空行
 
-# 4.反转
+# 5.反转
 # 字符串反转
 # 方法1
 s = 'HelloWorld'
@@ -161,5 +231,98 @@ print(list1)
 # 元组反转
 tuple1 = (1, 2, 1, 4, 3)
 print(tuple1[::-1])
+
+# 6.删除列表中所有的1
+# 方法1：这个方法的坏处，是把所有的元素都去重了，所以结果可能不正确
+L = [1, 2, 3, 1, 3, 1, 5, 1]
+s = set(L)    # 去重（备注：set()是集合，不允许重复的值）
+L = list(s)   # 把集合转变为列表
+L.remove(1)
+print(L)
+
+# 方法2：靠谱
+L1 = [1, 2, 3, 1, 3, 1, 5, 1]
+while True:
+    L1.remove(1)
+    if 1 not in L1:
+        print(L1)
+        break
+
+# 7.交换两个变量的值
+a = 10
+b = 20
+a, b = b, a   # 序列解包赋值
+print(a, b)
+
+# 8.eval()函数：把指定的字符串，转化为数字、列表、元组、集合、字典
+# 转化为数字
+a = '123'
+a = eval(a)
+print(a, type(a))
+
+# 转化为列表
+a = '[1, 2, 3]'
+a = eval(a)
+print(a, type(a))
+
+# 转化为元组
+a = '(1, 2, 3)'
+a = eval(a)
+print(a, type(a))
+
+# 转化为集合
+a = '{1, 2, 3}'
+a = eval(a)
+print(a, type(a))
+
+# 转化为字典
+a = '{"name": "Jerry", "age": 18}'
+a = eval(a)
+print(a, type(a))
+
+# 9. ''.join()函数：把字符串、列表、元组中的元素，以指定的字符(分隔符)连接生成一个新的字符串
+b = 'abcde'
+# 用指定的分隔符生成新的字符串
+b = '-'.join(b)
+print(b, type(b))
+
+# 字符串转化为列表
+b = list('abcde')
+print(b)
+# 列表转化为字符串
+b = ','.join(b)
+print(b, type(b))
+
+# 字符串转化为元组
+b = tuple('abcde')
+print(b)
+# 元组转化为字符串
+b = ''.join(b)
+print(b, type(b))
+
+# 字符串转化为字典的key
+b = {}.fromkeys('abcde')
+print(b)
+# 元组转化为字符串
+b = '-'.join(b)
+print(b, type(b))
+
+num = [95001, 95002, 95003, 95004, 95005, 95006, 95007, 95008, 95009, 95010]
+dict_all = {}.fromkeys(num)
+print(dict_all)
+
+# {95001: None, 95002: None, 95003: None, 95004: None, 95005: None, 95006: None, 95007: None, 95008: None, 95009: None, 95010: None}
+for i in range(1, 11):
+    dict_all[num[i-1]] = i
+print(dict_all)
+
+
+
+
+
+
+
+
+
 
 
