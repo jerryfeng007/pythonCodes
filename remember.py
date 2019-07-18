@@ -335,7 +335,12 @@ b'{"errCode":0,"msg":"success","data":["600000","600004","600006","600007","6000
 # 把json格式转化为python中的格式，其实是由str变为别的类型
 # data = json.loads(data)  转化后，data由str变为了其他的类型
 
-
+# 12.sorted对字典排序
+d = {'b': 4, 'a': 9, 'f': 0, 's': 2}
+print(sorted(d.items(), key=lambda x: x[0]))
+print(sorted(d.items(), key=lambda x: x[0], reverse=True))
+print(sorted(d.items(), key=lambda x: x[1]))
+print(sorted(d.items(), key=lambda x: x[1], reverse=True))
 
 
 
