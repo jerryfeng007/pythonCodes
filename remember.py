@@ -342,6 +342,11 @@ print(sorted(d.items(), key=lambda x: x[0], reverse=True))
 print(sorted(d.items(), key=lambda x: x[1]))
 print(sorted(d.items(), key=lambda x: x[1], reverse=True))
 
+另一个：
+a = [{'name': 'jerry', 'age': 20}, {'name': 'tom', 'age': 10}, {'name': 'lily', 'age': 30}]
+print(sorted(a, key=lambda x: x['age'], reverse=True))
+print(sorted(a, key=lambda x: x['name'], reverse=True))
+
 
 
 
