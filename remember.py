@@ -195,7 +195,7 @@ for i in range(len(student)):
 1x9=9 2x9=18 3x9=27 4x9=36 5x9=45 6x9=54 7x9=63 8x9=72 9x9=81  先实现这一行
 '''
 # i = 9  # 先写死
-# for j in range(1, i+1):  # 这里使用了 i+1， 而不是直接写 10
+# for j in range(1, i+1):  # 这里不要写死，而是使用了 i+1，随着i的变化而变化
 #     print(f'{j}x{i}={j*i}', end='\t')
 
 '''
