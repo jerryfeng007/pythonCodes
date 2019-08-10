@@ -195,16 +195,16 @@ for i in range(len(student)):
 1x9=9 2x9=18 3x9=27 4x9=36 5x9=45 6x9=54 7x9=63 8x9=72 9x9=81  先实现这一行
 '''
 # i = 9  # 先写死
-# for j in range(1, 10):
-#     print(f'{j}x{i}={j * i}', end=' ')
+# for j in range(1, i+1):  # 这里使用了 i+1， 而不是直接写 10
+#     print(f'{j}x{i}={j*i}', end='\t')
 
 '''
 第二步
-在上面的基础上，把i变活，i取值1-9，需要注意i与j的关系
+在上面的基础上，把i变活，i取值1-9
 '''
-for i in range(1, 10):
+for i in range(1, 10):  # 只加上这一句，把下面的语句加缩进，即可
     for j in range(1, i+1):
-        print(f'{j}x{i}={j * i}', end=' ')
+        print(f'{j}x{i}={j*i}', end='\t')
     print()  # 需要加一个空行
 
 # 5.反转
