@@ -364,6 +364,41 @@ a = [{'name': 'jerry', 'age': 20}, {'name': 'tom', 'age': 10}, {'name': 'lily', 
 print(sorted(a, key=lambda x: x['age'], reverse=True))
 print(sorted(a, key=lambda x: x['name'], reverse=True))
 
+# 13.上传
+# 上传文件
+def post_upload(self, url, path, file, headers):
+	full_url = url+path
+	print('Post-Upload请求完整url=', full_url)
+	
+	# 从excel中取出的数据为："{'file':'./testdata/StockPoolTemplate.txt'}"，类型为str
+	# run_testcase传递给interface_test的时候使用了eval函数，eval("{'file':'./testdata/StockPoolTemplate.txt'}")
+	# 所以传递过来的数据为：{'file':'./testdata/StockPoolTemplate.txt'}，类型为dict
+	
+	files = {'file': open(file['file'], 'rb')}
+	try:
+		r = requests.post(full_url, files=files, headers=headers, verify=False)
+		# print('Post-Upload响应状态码=',r.status_code)
+		# print('Post-Upload响应结果=', r.json())
+		# print(f'Post-Upload接口响应时间={r.elapsed.total_seconds()}秒')
+		return r.content, r.json(), r.elapsed.total_seconds(), r.status_code
+	except Exception as e:
+		print('Post-Upload请求出现了异常!', str(e))
 
 
+# 上传图片
+def post_upload(url, data, files, cookie):
+    try:
+        r = requests.post(url, files=files, data=data, cookies=cookie)
+        print(r.status_code)
+        print(r.text)
+    except Exception as e:
+        print('Post-Upload请求出现了异常!', str(e))
 
+
+url = 'http://upload.renren.com/upload.fcgi'
+data = {'pagetype': 'nphoto', 'hostid': '2111ndbchfjehs', 'uploadid': 'mdnrhfu038271'}
+files = {'file': open('./testdata/111.jpg', 'rb')}
+cookie = {'Cookie': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx'}
+
+if __name__ == '__main__':
+    post_upload(url, data, files, cookie)
