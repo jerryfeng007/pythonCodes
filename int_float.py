@@ -1,4 +1,3 @@
-# python基本数据类型---数字
 # int、float
 a = 20
 b = 5
