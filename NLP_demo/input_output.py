@@ -1,12 +1,13 @@
 import re
 
 # 1.读取文件
+
 # # 方式1：一次性读取所有内容
 # with open('input_file1', 'r') as f:
 #     con = f.read()  # 一次性读取所有，内容多时不要这么用
 #     # print(con)
 
-# # 方式2：for循环，每次读取一行
+# # 方式2：for循环，每次读取一行，需要提前知道行数
 # with open('input_file1', 'r') as f:
 #     con = ''
 #     for i in range(9):  # 经过查看文件有9行
@@ -14,13 +15,13 @@ import re
 #         con += con_temp
 #     print(con)
 
-# # 方式3：for循环
+# # 方式3：for循环遍历f，每次也是读取一行，但无需知道行数
 with open('input_file1', 'r') as f:
+    # print(len(list(f)))  # 把f转换为列表，可以看到他的长度是9行
     con = ''
-    for i in f:  # 经过查看文件有9行
+    for i in f:
         con += i
     print(con)
-运行试试
 
 # 2.去除所有的标点符号和换行符，并把所有大写变成小写
 # 去除所有标点符号
