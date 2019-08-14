@@ -1,9 +1,26 @@
 import re
 
 # 1.读取文件
+# # 方式1：一次性读取所有内容
+# with open('input_file1', 'r') as f:
+#     con = f.read()  # 一次性读取所有，内容多时不要这么用
+#     # print(con)
+
+# # 方式2：for循环，每次读取一行
+# with open('input_file1', 'r') as f:
+#     con = ''
+#     for i in range(9):  # 经过查看文件有9行
+#         con_temp = f.readline()
+#         con += con_temp
+#     print(con)
+
+# # 方式3：for循环
 with open('input_file1', 'r') as f:
-    con = f.read()  # 一次性读取所有，内容多时不要这么用
-    # print(con)
+    con = ''
+    for i in f:  # 经过查看文件有9行
+        con += i
+    print(con)
+运行试试
 
 # 2.去除所有的标点符号和换行符，并把所有大写变成小写
 # 去除所有标点符号
