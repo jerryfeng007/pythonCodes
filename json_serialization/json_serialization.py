@@ -29,7 +29,9 @@ print('type of original_params = {}, original_params = {}'.format(type(original_
 
 print('-----------------------------------输出字符串到文件、从文件再读取json字符串-------------------------------------------------')
 
+# 应用场景
 # 当开发一个第三方应用程序时，可以通过 JSON 将用户的个人配置输出到文件，方便下次程序启动时自动读取
+
 params = {
     'symbol': '123456',
     'type': 'limit',
