@@ -393,3 +393,15 @@ cookie = {'Cookie': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx'}
 if __name__ == '__main__':
     post_upload_pic(url, data, files, cookie)
 '''
+
+print('----------------------------------14.上传------------------------------------------------------')
+
+d1 = {'name': 'jerry', 'age': 18}
+
+
+def www(name, age):
+    return name, age
+
+
+name, age = www(**d1)  # 加 ** ，把字典以关键字实参的形式给函数传递过去
+print(name, age)

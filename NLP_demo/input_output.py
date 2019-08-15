@@ -2,31 +2,49 @@ import re
 
 # 1.读取文件
 
-# # 方式1：一次性读取所有内容
+# # 方式1：一次性读取所有内容（内容多时不要这么用）
 # with open('input_file1', 'r') as f:
-#     con = f.read()  # 一次性读取所有，内容多时不要这么用
+#     con = f.read()
 #     # print(con)
 
-# # 方式2：for循环，每次读取一行，需要提前知道行数
+# # 方式2：for循环遍历，一次性读取了所有行（同方式一，内容多时不要这么用）
+# with open('input_file1', 'r') as f:
+#     con = ''
+#     cons = f.readlines()
+#     for i in cons:
+#         con += i
+#     # print(con)
+
+# # 方式3：while循环，每次读取一定长度的内容
+with open('input_file1', 'r') as f:
+    con = ''
+    while True:
+        con_temp = f.read(100)
+        con += con_temp
+        if len(con_temp) == 0:
+            break
+    # print(con)
+
+# # 方式4：for循环，每次读取一行，需要提前知道行数
 # with open('input_file1', 'r') as f:
 #     con = ''
 #     for i in range(9):  # 经过查看文件有9行
 #         con_temp = f.readline()
 #         con += con_temp
-#     print(con)
+#     # print(con)
 
-# # 方式3：for循环遍历f，每次也是读取一行，但无需知道行数
-with open('input_file1', 'r') as f:
-    # print(len(list(f)))  # 把f转换为列表，可以看到他的长度是9行
-    con = ''
-    for i in f:
-        con += i
-    print(con)
+# # 方式5：for循环遍历f，每次也是读取一行，但无需知道行数
+# with open('input_file1', 'r') as f:
+#     # print(len(list(f)))  # 把f转换为列表，可以看到他的长度是9行
+#     con = ''
+#     for i in f:
+#         con += i
+#     # print(con)
 
 # 2.去除所有的标点符号和换行符，并把所有大写变成小写
 # 去除所有标点符号
-punctuation = '!,.;:?"\''
-con = re.sub(r'[{}]+'.format(punctuation), ' ', con)
+con = re.sub(r'[^\w]', ' ', con)
+# print(con)
 
 # 去除换行符
 con = con.replace('\n', '')
