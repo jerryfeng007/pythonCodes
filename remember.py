@@ -400,8 +400,7 @@ d1 = {'name': 'jerry', 'age': 18}
 
 
 def www(name, age):
-    return name, age
+    print(name, age)
 
 
-name, age = www(**d1)  # 加 ** ，把字典以关键字实参的形式给函数传递过去
-print(name, age)
+www(**d1)  # 加 ** ，把字典以关键字实参的形式给函数传递过去
