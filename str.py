@@ -214,4 +214,4 @@ print(id(s1))
 # 如果想要改变s1，比如变为 'abcdef'
 # 那么需要重新开辟一块内存存储
 s1 = 'abcdef'
-print(id(s1))  # id 变了
+print(id(s1))  # id 变了哈哈
