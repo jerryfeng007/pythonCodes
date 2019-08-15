@@ -1,8 +1,18 @@
 import re
 
 # 1.读取文件
+# with open('input_file1', 'r') as f:
+#     con = f.read()  # 一次性读取所有，内容多时不要这么用
+#     # print(con)
+
+# 方式4
 with open('input_file1', 'r') as f:
-    con = f.read()  # 一次性读取所有，内容多时不要这么用
+    con = ''
+    while True:
+        con_temp = f.read(100)
+        con += con_temp
+        if len(con_temp) == 0:
+            break
     # print(con)
 
 # 2.去除所有的标点符号和换行符，并把所有大写变成小写
