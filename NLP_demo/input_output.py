@@ -43,8 +43,8 @@ with open('input_file1', 'r') as f:
 
 # 2.去除所有的标点符号和换行符，并把所有大写变成小写
 # 去除所有标点符号
-punctuation = '!,.;:?"\''
-con = re.sub(r'[{}]+'.format(punctuation), ' ', con)
+con = re.sub(r'[^\w]', ' ', con)
+# print(con)
 
 # 去除换行符
 con = con.replace('\n', '')
