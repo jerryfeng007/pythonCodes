@@ -1,12 +1,9 @@
 import re
 
+print('---------------------------------一次性读取全部数据--------------------------------------------')
+
 with open('file1.txt', 'r') as f:
-    content = ''
-    while True:
-        content_temp = f.read(100)
-        content += content_temp
-        if not content_temp:
-            break
+    content = f.read()
     # print(content)
 
 
@@ -27,7 +24,7 @@ def parse(con):
     con = list(filter(None, con))  # 可以过滤0、None、空列表等，注意别过滤多了
     # print(con)
 
-    # 去除空白单词
+    # 方式2
     # while True:
     #     if '' in con:
     #         con.remove('')
@@ -41,6 +38,14 @@ def parse(con):
         if key not in d:
             d[key] = con.count(key)
     # print(d)
+
+    # 方式2
+    # d = {}
+    # for key in con:
+    #     if key not in d:
+    #         d[key] = 0
+    #     d[key] += 1
+    # # print(d)
 
     # 按照词频从大到小排序
     d1 = sorted(d.items(), key=lambda x: x[1], reverse=True)
