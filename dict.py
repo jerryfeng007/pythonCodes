@@ -128,17 +128,20 @@ print('--------------------------------------------------遍历字典-----------
 
 # 直接遍历--遍历的是key
 dict6 = {'aa': 11, 'bb': 22, 'cc': 33}
-for i in dict6:
-    print(i, dict6[i])
+for key in dict6:
+    print(key, dict6[key])
 
 # 遍历keys()
-for key in dict1.keys():
-    print(key, dict1[key])
+for key in dict6.keys():
+    print(key, dict6[key])
 
 # 遍历items()
-dict1 = {'a': 1, 'b': 2, 'c': 3}
-for k, v in dict1.items():
-    print(k, v)
+for key, value in dict6.items():   # 注意，不能这么遍历： for key, value in dict6:
+    print(key, value)
+
+# 遍历values()
+for value in dict6.values():
+    print(value)
 
 print('--------------------------------------------------字典的方法--------------------------------------------')
 

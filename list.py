@@ -203,17 +203,76 @@ for s in student:
     l.append(temp)
 print(l)
 
-print('-------------------------------------------列表推导式--------------------------------------------------')
+print('----------------------------------列表生成式、列表推导式-------------------------------------')
+# 列表生成式
+l = range(1, 1000, 20)
+print(l)
 
-# 非列表推导式
-list2 = []
-for i in range(10):
-    list2.append(i)
-print(list2)
+# 列表推导式(最简单)
+l = list(x*2 for x in [1, 2, 3])
+print(l)
 
-# 列表推导式---更简单，执行效率高
-list1 = [i for i in range(10)]
-print(list1)
+# 或者
+l = [x * 2 for x in [1, 2, 3]]  # 映射解析，一对一
+print(l)
 
-print('-------------------------------------------转化为列表--------------------------------------------------')
-list()
+# 等价于(使用了匿名函数)
+l = [(lambda x: x * 2)(x) for x in [1, 2, 3]]
+print(l)
+
+# 等价于(笨方法)
+ll = []
+for x in [1, 2, 3]:
+    ll.append(x * 2)
+print(ll)
+
+# 以下都是列表推导式
+l = [x * 2 for x in [1, 2, 3] if x % 2 != 0]  # 只有if，没有else
+print(l)
+
+l = [i * 2 if i > 2 else i * 3 for i in [1, 2, 3]]  # 有if，有else
+print(l)
+
+l = [x * j for x in [1, 2] for j in [2, 3]]  # 嵌套循环
+print(l)
+
+l = [x * j for x in [1, 2] for j in [2, 3] if j < 3]
+print(l)
+
+print('----------------------------------enumerate方法的使用，取索引和元素-------------------------------------')
+
+# 可以是字符串、列表、元组
+l = [1, 2, 3, 4]
+for index, item in enumerate(l):
+    print(index, item)
+
+# 案例
+# 给定一个list和一个指定的数字，求这个数字在list中的位置
+# 注意，列表中可能有多个相同的元素
+
+
+# 方法1
+def jjj(l, num):
+    ll = []
+    for i in range(len(l)):
+        if l[i] != num:
+            continue
+        ll.append(i)
+    return ll
+
+
+ll = jjj([1, 2, 3, 2, 2, 2, 2], 2)
+print(ll)
+
+
+# 方法2
+def mmm(l, num):
+    index_list = []
+    for index, item in enumerate(l):
+        if item == num:
+            index_list.append(index)
+    return index_list
+
+
+lll = mmm([1, 2, 3, 2, 2, 2, 2], 2)
+print(lll)

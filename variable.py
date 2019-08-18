@@ -11,10 +11,25 @@ name1 = name2 = 'tom'
 # 序列解包赋值
 name3, age = 'jerry', 18
 
-print('----------------------------------------------查看变量的类型--------------------------------------------')
+print('--------------------查看变量的类型------type------isinstance()-------------------------------------')
 
-a = '34'
-print(type(a))
+# type()
+s = '999'
+print(type(s))
+
+# isinstance()
+if isinstance(s, str):
+    print(True)
+else:
+    print(False)
+
+# 判断是否可迭代
+from collections.abc import Iterable
+ll = [1, 2, 3]
+if isinstance(ll, Iterable):
+    print(True)
+else:
+    print(False)
 
 print('----------------------------------------------查看地址--------------------------------------------')
 
