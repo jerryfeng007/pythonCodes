@@ -27,17 +27,9 @@ d = {}.fromkeys(con)
 print(d)  # {'a': None, 'b': None, 'c': None, 'name': None} 虽然列表中有重复的元素，但生成字典却没有重复的key
 
 # 方式5 --------这个估计很有用
-zip1 = zip('abcde', '12345')  # 都是字符串
+zip1 = zip('abcde', '12345')  # 都是字符串 或者 都是列表  或者 都是元组
 dict4 = dict(zip1)
 print(dict4)
-
-zip2 = zip(['张三', '李四'], ['数学', '英语'])  # 都是列表
-dict5 = dict(zip2)
-print(dict5)
-
-zip3 = zip(('张三', '李四'), ('数学', '英语'))  # 都是元组
-dict6 = dict(zip3)
-print(dict6)
 
 print('--------------------------------------------------key和value--------------------------------------------')
 

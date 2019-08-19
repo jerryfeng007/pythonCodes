@@ -216,10 +216,8 @@ for value in values:
     l.append(dict(zip1))
 print(l)
 
-# 普通写法2
-
-vvvvvvvvvvvvvvvvvvvvvv
-
 # 将条件与循环并作一行
 l = [dict(zip(attributes, value)) for value in values]
 print(l)
+
+
