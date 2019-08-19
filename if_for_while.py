@@ -57,13 +57,6 @@ for i in range(len(l)):
     if i < 2:
         print(i, l[i])
 
-print('----------------------------------enumerate()函数-----------------------------------------------')
-
-# 使用内置函数enumerate，上面的例子也可以写成：
-for index, item in enumerate(l):
-    if index < 2:
-        print(index, item)
-
 # 特殊的for循环
 a = [(1, 2), (3, 4)]
 # 方式1
@@ -175,3 +168,25 @@ print(l1)
 # 将条件与循环并作一行
 l2 = [i if i > 2 else i * 3 for i in l]  # 这就成了列表推导式
 print(l2)
+
+# 例5
+# 普通写法
+text = ' Today, is, Sunday'
+text = text.split(',')
+print(text)
+text = [i.lstrip() for i in text]
+print(text)
+text = [i for i in text if len(i) >= 5]
+print(text)
+
+# 用一行写：
+text = ' Today, is, Sunday'
+text = [i for i in [i.lstrip() for i in text.split(',')] if len(i) >= 5]
+# 等价于
+# text = [i.lstrip() for i in text.split(',') if len(i) >= 5] 因为并没有对i做其他操作
+print(text)
+
+# 类似于
+l = [1, 2, 3]
+l1 = [i for i in l]  # 跟l是相等的，因为表达式是i，等于没操作l中的元素
+print(l1)
