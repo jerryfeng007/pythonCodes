@@ -179,14 +179,47 @@ print(text)
 text = [i for i in text if len(i) >= 5]
 print(text)
 
-# 用一行写：
+# 将条件与循环并作一行
 text = ' Today, is, Sunday'
-text = [i for i in [i.lstrip() for i in text.split(',')] if len(i) >= 5]
-# 等价于
-# text = [i.lstrip() for i in text.split(',') if len(i) >= 5] 因为并没有对i做其他操作
+text = [i for i in [i.lstrip() for i in text.split(',')] if len(i) >= 5]      # 等价于
+# text = [i.lstrip() for i in text.split(',') if len(i) >= 5]                   因为并没有对i做其他操作
 print(text)
 
 # 类似于
 l = [1, 2, 3]
 l1 = [i for i in l]  # 跟l是相等的，因为表达式是i，等于没操作l中的元素
 print(l1)
+
+# 例6 -- 嵌套循环
+# 普通写法
+x = [1, 2, 3]
+y = [4, 5, 6]
+z = []
+for i in x:
+    for j in y:
+        if i != j:
+            z.append((i, j))
+print(z)
+
+# 将条件与循环并作一行
+l = [(i, j) for i in x for j in y if i != j]
+print(l)
+
+# 例7
+attributes = ['name', 'dob', 'gender']
+values = [['jason', '2000-01-01', 'male'], ['mike', '1999-01-01', 'male'], ['nancy', '2001-02-01', 'female']]
+
+# 普通写法1 --- 使用了zip
+l = []
+for value in values:
+    zip1 = zip(attributes, value)
+    l.append(dict(zip1))
+print(l)
+
+# 普通写法2
+
+vvvvvvvvvvvvvvvvvvvvvv
+
+# 将条件与循环并作一行
+l = [dict(zip(attributes, value)) for value in values]
+print(l)
