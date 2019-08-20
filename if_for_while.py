@@ -219,5 +219,3 @@ print(l)
 # 将条件与循环并作一行
 l = [dict(zip(attributes, value)) for value in values]
 print(l)
-
-
