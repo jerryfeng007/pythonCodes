@@ -209,7 +209,7 @@ print(l)
 attributes = ['name', 'dob', 'gender']
 values = [['jason', '2000-01-01', 'male'], ['mike', '1999-01-01', 'male'], ['nancy', '2001-02-01', 'female']]
 
-# 普通写法1 --- 使用了zip
+# 普通写法 --- 使用了zip
 l = []
 for value in values:
     zip1 = zip(attributes, value)
