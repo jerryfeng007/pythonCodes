@@ -10,7 +10,7 @@ with open('file1.txt', 'r') as f:
 def parse(con):
     # 使用正则表达式去除所有标点符号和换行
     con = re.sub(r'[^\w]', ' ', con)
-    # print(con)
+    print(con)
 
     # 所有大写变为小写
     con = con.lower()
