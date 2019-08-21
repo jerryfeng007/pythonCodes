@@ -82,18 +82,6 @@ t.sing()
 print(t.age, t.sex, t.name)  # 实例调用
 print(Test.age, Test.sex, Test.name)  # 类调用
 
-print('------------------------------------------访问权限------------------------------------------------------')
-# 公有属性：类内部、子类内部、模块内其他位置、跨模块， 都可以访问
-# 受保护的：类内部、子类内部可以访问；模块内其他位置、跨模块访问时，要么警告，要么报错
-# 私有属性：类内部可以被访问，子类内部和其他位置都不可以
-
-
-class Parent:
-    x = 10
-    _x = 11   # 受保护的属性
-    __x = 12  # 私有属性
-
-
 print('-----------------------------------面向对象四大特性---抽象---封装---继承---多态--------------------------')
 print('-----------------------------------面向对象四大要素----类----对象---属性---方法--------------------------')
 
@@ -106,45 +94,100 @@ print('-----------------------------------面向对象四大要素----类----对
 
 # 继承多个类  class Dog(Animal, Animals):
 
-# 单继承链：
+print('--------------------------------------------继承-------单继承链---------------------------------------')
 # 查找顺序：一直向上找
-
-# 无重叠的多继承链：
-# 查找顺序：左--左上--右--右上
-
-# 有重叠的多继承链：
-# 查找顺序： 左--右--上
 
 
 class D:
-    age = 'd'
+    def __init__(self):
+        print('D的构造')
+        super().__init__()
 
 
 class C(D):
-    age = 'c'
-    pass
+    def __init__(self):
+        print('C的构造')
+        super().__init__()
+
+
+class B(C):
+    def __init__(self):
+        print('B的构造')
+        super().__init__()
+
+
+class A(B):
+    def __init__(self):
+        print('A的构造')
+        super().__init__()
+
+
+a = A()
+
+print('--------------------------------------------继承-----无重叠的多继承链---------------------------------------')
+# 查找顺序： 左--右
+
+class C:
+    def __init__(self):
+        print('C的构造')
+        super().__init__()
+
+
+class B:
+    def __init__(self):
+        print('B的构造')
+        super().__init__()
+
+
+# class A(C, B):
+class A(B, C):
+    def __init__(self):
+        print('A的构造')
+        super().__init__()
+
+
+a = A()
+
+print('--------------------------------------------继承-----有重叠的多继承链---------------------------------------')
+# 查找顺序：左--左上--右--右上
+
+
+class D:
+    def __init__(self):
+        print('D的构造')
+        super().__init__()
+
+
+class C(D):
+    def __init__(self):
+        print('C的构造')
+        super().__init__()
 
 
 class B(D):
-    # age = 'b'
-    pass
+    def __init__(self):
+        print('B的构造')
+        super().__init__()
 
 
+# class A(C, B):
 class A(B, C):
-    # age = 'a'
-    pass
+    def __init__(self):
+        print('A的构造')
+        super().__init__()
 
 
-print(A.age)
+a = A()
+
+print('-------------------------------------------------------继承--案例----------------------------------------')
 
 
-# 继承
 class B():
     a = 1  # 类属性
 
     def __init__(self):
         self.b = 2      # 实例属性
-        print('创建子类的实例时，因为子类没有构造方法，所以会调用父类的构造方法')
+        print('调用父类的构造方法')
 
     def t1(self):
         print('t1')
@@ -162,6 +205,7 @@ class A(B):
     c = 3   # A 新增的类属性
 
     def __init__(self):
+        print('调用子类的构造方法')
         super().__init__()  # super不是父类，而是MRO链条的下一级节点， 直接写super()就可以，不用传参数
         self.e = 4
 
@@ -179,7 +223,7 @@ class A(B):
         print('t3')
 
 
-a_obj = A()      # 创建实例时，会调用构造方法，因为子类没有，所以会调用父类的构造方法
+a_obj = A()      # 创建实例时，会调用子类的构造方法，会调用父类的构造方法
 print(A.a)       # 子类没有a, 所以访问父类的类属性
 print(a_obj.b)   # 子类没有b，所以访问父类的实例属性
 a_obj.t1()
@@ -192,12 +236,13 @@ A.tt2()
 A.tt3()
 print(a_obj.e)
 
+print('-------------------------------------------------------多态----------------------------------------')
 
-# 多态
+
 # 子类可以重写父类的方法，方法名相同，但重写了，内容可以不同
 class Animal:
     def jiao(self):
-        pass
+        raise Exception('此方法未实现，子类需要重写这个方法')
 
 
 class Dog(Animal):
@@ -210,6 +255,7 @@ class Cat(Animal):
         print('喵喵喵')
 
 
+# 这个写法不错
 def test(obj):
     obj.jiao()
 
@@ -219,10 +265,7 @@ c = Cat()
 test(d)
 test(c)
 
-# 抽象类（比如Animal）、抽象方法(比如jiao)
-
-print('--------------------------------------------综合案例------------------------------------------')
-# 综合1：封装、继承、多态
+print('-------------------------综合案例-----封装、继承、多态----------------------------------------')
 
 
 class Animal:
@@ -234,7 +277,7 @@ class Animal:
         print('名字为{}年龄为{}的小家伙在吃饭'.format(self.name, self.age))
 
     def play(self):
-        print('名字为{}年龄为{}的猫在吃饭')
+        raise Exception('方法未实现，需要子类重写')
 
 
 class Dog(Animal):
@@ -242,7 +285,8 @@ class Dog(Animal):
         super().__init__(name, age)
         self.sex = sex
 
-    def play(self):  # 重写父类的play方法
+    # 重写父类的play方法
+    def play(self):
         print('性别为{}年龄为{}的小狗在玩'.format(self.sex, self.age))
         super().eat()
 
@@ -252,17 +296,45 @@ class Dog(Animal):
 
 d = Dog('小黑', '母')
 d.eat()  # 调用的是父类的方法
-d.play()  # 调用的是重写的父类方法
+d.play()  # 调用的是子类重写的父类方法
 d.watch()  # 调用的是子类的方法
 
+print('------------------------------------------访问权限------------------------------------------------------')
+# 公有属性：类内部、子类内部、模块内其他位置、跨模块， 都可以访问
+# 受保护的：类内部、子类内部可以访问；模块内其他位置、跨模块访问时，要么警告，要么报错
+# 私有属性：类内部可以被访问，子类内部和其他位置都不可以
 
-# 复制文件的两种方法：
 
-# 1.使用shutil.copy
-# import shutil
-# shutil.copy('ccc.JPG', './归类练习/eee.JPG')
+class Parent:
+    x = 10
+    _x = 11   # 受保护的属性
+    __x = 12  # 私有属性
 
-# 2.读取，再写入
-# with open('ccc.JPG', 'rb') as f, open('./归类练习/fff.jpg', 'wb') as f1:
-#     con = f.read()
-#     f1.write(con)
+
+print('-------------------------案例-----访问父类的私有属性----------------------------------------')
+
+
+class A:
+    def __init__(self, name, age, sex):
+        self.__name = name
+        self._age = age
+        self.sex = sex
+
+    # 这个函数的作用就是返回父类的私有变量给外界和子类访问
+    def nnn(self):
+        return self.__name
+
+
+class B(A):
+    def __init__(self, name, age, sex):
+        super().__init__(name, age, sex)
+
+    def mmm(self):
+        # print(self.__name)  # 直接访问父类的私有变量，不可以
+        print(self.nnn())     # 调用了父类的公共方法访问的
+
+
+b = B('jerry', 18, 'male')
+# print(b.__name)  直接访问父类的私有变量，不可以
+print(b.nnn())   # 在父类写一个公共方法，返回这个私有的变量给外界
+b.mmm()          # 同理
