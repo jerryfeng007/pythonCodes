@@ -29,8 +29,12 @@ class A:
         self._age = age
         self.sex = sex
 
+    # 这个函数的作用是外界传来一个name，然后赋值给私有变量，相当于对私有变量进行修改
+    def set_value(self, name):
+        self.__name = name
+
     # 这个函数的作用就是返回父类的私有变量给外界和子类访问
-    def nnn(self):
+    def get_value(self):
         return self.__name
 
 
@@ -40,10 +44,15 @@ class B(A):
 
     def mmm(self):
         # print(self.__name)  # 直接访问父类的私有变量，不可以
-        print(self.nnn())     # 调用了父类的公共方法访问的
+        print(self.get_value())     # 调用了父类的公共方法访问的
 
 
 b = B('jerry', 18, 'male')
 # print(b.__name)  直接访问父类的私有变量，不可以
-print(b.nnn())   # 在父类写一个公共方法，返回这个私有的变量给外界
-b.mmm()          # 同理
+print(b.get_value())   # 在父类写一个公共方法，返回这个私有的变量给外界
+b.mmm()                # 同上
+
+# 修改私有变量的值
+b.set_value('tom')
+print(b.get_value())
+b.mmm()
