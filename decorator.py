@@ -354,3 +354,27 @@ def fashuoshuo(hello):  # 带参数
 
 m = fashuoshuo('hello')
 print(m)
+
+print('-------------------------------------函数被装饰之后，元信息变了-----------------------------------------------')
+
+# 函数被装饰以后，他的元信息变了，被内部函数取代了
+# 通常使用内置的装饰器@functools.wrap，它会帮助保留原函数的元信息（也就是将原函数的元信息，拷贝到对应的装饰器函数里）
+
+import functools
+
+
+def my_decorator(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        print('wrapper of decorator')
+        func(*args, **kwargs)
+
+    return wrapper
+
+
+@my_decorator
+def greet(message):
+    print(message)
+
+
+print(greet.__name__)
