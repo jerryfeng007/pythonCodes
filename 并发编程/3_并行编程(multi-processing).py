@@ -12,7 +12,6 @@ with futures.ProcessPoolExecutor(max_workers=3) as e:  (可以不写max_workers)
 如果使用多进程，必须要使用if __name__ == '__main__':  否则报错
 """
 
-print('-------------------------------多进程--1----------------------------------------')
 from concurrent import futures
 import time
 
@@ -33,45 +32,3 @@ if __name__ == '__main__':                    # 必须要有if __name__ == '__ma
     print(list(result))                       # 需要list()
     end = time.perf_counter()
     print(end - start)
-
-print('-----------------------多进程--2---有问题，为啥没执行download_one2----------------')
-# import concurrent.futures
-# import time
-# import requests
-#
-#
-# def download_one(url):
-#     print(1111111111111111111111111)
-#     resp = requests.get(url)
-#     print(2222222222222222222222222)
-#     print('Read {} from {}'.format(len(resp.content), url))
-#     print(3333333333333333333333333)
-#
-#
-# def download_all(sites):
-#     with concurrent.futures.ProcessPoolExecutor() as p:
-#         p.map(download_one, sites)
-#
-#
-# if __name__ == '__main__':
-#     sites = [
-#         'https://www.baidu.com/',
-#         'https://pypi.org/',
-#         'https://www.sina.com.cn/',
-#         'https://www.163.com/',
-#         'https://news.qq.com/',
-#         'http://www.ifeng.com/',
-#         'http://www.ce.cn/',
-#         'https://news.baidu.com/',
-#         'http://www.people.com.cn/',
-#         'http://www.ce.cn/',
-#         'https://news.163.com/',
-#         'http://news.sohu.com/'
-#     ]
-#     start_time = time.perf_counter()
-#     try:
-#         download_all(sites)
-#     except Exception as e:
-#         print('啥问题？', str(e))
-#     end_time = time.perf_counter()
-#     print('Download {} sites in {} seconds'.format(len(sites), end_time - start_time))

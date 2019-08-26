@@ -7,7 +7,7 @@ Asyncio
 因此 Asyncio 内的操作不会出现 race condition 的情况，这样你就不需要担心线程安全的问题
 
 """
-print('-------------------------------使用requests------------------------------------------')
+print('-------------------------------使用requests---太慢---------------------------------------')
 
 import requests
 import asyncio
@@ -21,9 +21,9 @@ async def download_one3(url):
 
 async def download_all3(sites):
     tasks = [asyncio.create_task(download_one3(url)) for url in sites]
-    # await asyncio.gather(*tasks)
-    for task in tasks:
-        await task
+    await asyncio.gather(*tasks)
+    # for task in tasks:
+    #     await task
 
 
 def main3():
@@ -78,16 +78,16 @@ def main3():
 if __name__ == '__main__':
     main3()
 
-print('----------------------------------使用aiohttp-----------------------------------')
+print('-------------------------------使用aiohttp-----非常快------------------------------')
 import asyncio
 import aiohttp
 import time
 
 
 async def download_one(url):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as resp:
-            print('Read {} from {}'.format(resp.content_length, url))
+    async with aiohttp.ClientSession() as session:                     # 注意这里的写法
+        async with session.get(url) as resp:                           # 注意这里的写法
+            print('Read {} from {}'.format(resp.content_length, url))  # 注意这里
 
 
 async def download_all(sites):
