@@ -10,6 +10,18 @@ from asyncio import futures
 
 虽然线程的数量可以自己定义，但是线程数并不是越多越好，因为线程的创建、维护和删除也会有一定的开销
 所以如果你设置的很大，反而可能会导致速度变慢，需要根据实际的需求做一些测试，寻找最优的线程数量
+
+if io_bound:
+    if io_slow:
+        print('Use Asyncio')
+    else:
+        print('Use multi-threading')
+else if cpu_bound:
+    print('Use multi-processing')
+
+比如大公司里相应业务爬虫的规模非常大，要抓取百万级的视频新闻信息流，这种就属于IO heavy
+但是如果你只需要抓取10个网站的信息，并且网络连接良好，那么IO就很快
+
 """
 print('------------------------------不使用多线程---------------------------------------------------')
 import requests
