@@ -404,3 +404,48 @@ def www(name, age):
 
 
 www(**d1)  # 加 ** ，把字典以关键字实参的形式给函数传递过去
+
+print('----------------------------------15.生成随机6位数-----------------------------------------------')
+
+
+def sss():
+    l = []
+    for i in range(65, 91):
+        l.append(chr(i))
+
+    for i in range(97, 123):
+        l.append(chr(i))
+
+    for i in range(10):
+        l.append(str(i))
+
+    print(l)
+
+    l1 = random.sample(l, 6)
+    print(l1)
+
+    s = ''.join(l1)
+    print(s)
+
+
+sss()
+
+print('----------------------------------16.冒泡排序-----------------------------------------------')
+
+# 冒泡排序是指从头至尾比较相邻的元素。如果第一个元素比第二个元素大，就交换。
+
+# 1.用for循环实现冒泡升序排列
+num = [1, -3, 4, 0, 9, 5, 2, 3, 6]
+for j in range(len(num)-1):        # 需要比较 len(num)-1轮
+    for i in range(len(num)-1-j):  # 每一轮比较几次
+        if num[i] > num[i+1]:
+            num[i], num[i+1] = num[i+1], num[i]
+print(num)
+
+# 2.用for循环实现冒泡降序排列
+num = [1, -3, 4, 0, 9, 5, 2, 3, 6]
+for j in range(len(num)-1):  # 比较len(num)-1轮
+    for i in range(len(num)-1-j):  # 每一轮比较几次
+        if num[i] < num[i+1]:
+            num[i], num[i+1] = num[i+1], num[i]
+print(num)
