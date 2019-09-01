@@ -1,0 +1,4 @@
+2019-09-01 14:56:34,902 log_log.py [line:50] INFO: info message挨踢脱口秀
+2019-09-01 14:56:34,902 log_log.py [line:51] WARNING: warning message88小强测试品牌
+2019-09-01 14:56:34,902 log_log.py [line:52] ERROR: error message测试帮日记
+2019-09-01 14:56:34,903 log_log.py [line:53] CRITICAL: critical message小强测试品牌
