@@ -1,0 +1,24 @@
+import requests
+import json
+
+url = "http://localhost:12306"
+path = "/book_info"
+
+full_url = url+path  
+print("GET请求完整url=", full_url)
+
+params = {"booke_name":"小强软件测试疯狂讲义", "check_status":"on"}
+print("GET请求参数=", params)
+
+headers = {}
+
+
+
+r = requests.get(full_url, params = params, headers = headers)
+print("GET响应状态码=", r.status_code)
+print("GET响应头=", r.headers)#r.headers["Content-Type"]
+print("GET响应结果（json类型）=", r.text)
+print('GET接口的响应时间=', r.elapsed.total_seconds(),'秒')
+
+json_r = r.json()
+print("GET响应结果（转为python类型，供后续使用）=", json_r)

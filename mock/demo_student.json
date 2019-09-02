@@ -1,0 +1,99 @@
+[
+	{
+		"description":"post_form请求和响应，模拟登录接口，入参是form形式，返回json数据",
+		"request":
+		{
+			"headers":{"content-type":"application/x-www-form-urlencoded"},
+			"method":"post",
+			"uri":"/login1",
+			"forms":{"username":"xiaoqiang","pwd":"123123"}
+		},
+		"response":
+		{
+			"json":{"error_code":0,"reason":"successed","username":"xiaoqiang","check_status":"on"},
+			"status":200
+		}	
+	},
+	
+	{
+		"description":"post_json请求和响应，模拟登录接口，入参是json格式，返回json数据",
+		"request":
+		{
+			"headers":{"content-type":"application/json"},
+			"method":"post",
+			"uri":"/login2",
+			"json":{"username":"xiaoqiang","pwd":"123123"}
+		},
+		"response":
+		{
+			"json":{"error_code":0,"reason":"successed","username":"xiaoqiang","sex":{"sex1":"male"},"check_status":{"cs":"on"}},
+			"status":200
+
+		}
+		
+	},
+	
+	{
+		"description":"get请求和响应，模拟获取书籍列表接口，返回json格式数据",
+		"request" :
+		{
+			"method" : "get",
+			"uri" : "/book_list"
+		},
+		"response" :
+		{
+			"json":{"error_code":0,"reason":"successed","books":["小强测试品牌","小强python自动化测试","小强软件测试疯狂讲义"]},
+			"status":200
+		}
+	},
+	
+	
+	{
+		"description":"get请求和响应，模拟获取某个书籍的具体信息接口，返回json格式数据",
+		"request" :
+		{
+		"method" : "get",
+		"uri" : "/book_info",
+		"queries":{"booke_name":"小强软件测试疯狂讲义","check_status":"on","username": "xiaoqiang"}
+		},
+		"response" :
+		{
+			"json":{"error_code":0,"reason":"successed","name" : "小强软件测试疯狂讲义","price":666},
+			"status":200
+		}
+	},
+
+
+	{
+		"description":"put请求和响应，模拟获取某个书籍的具体信息接口，返回json格式数据",
+		"request" :
+		{
+		"method" : "put",
+		"uri" : "/book_put",
+		"queries":{"booke_name":"fcy","check_status":"hezi"}
+		},
+		"response" :
+		{
+			"json":{"error_code":0,"reason":"successed","name" : "fcyfcy","price":"hezihezi"},
+			"status":200
+		}
+	},
+
+
+	{
+		"description":"delete请求和响应，模拟获取某个书籍的具体信息接口，返回json格式数据",
+		"request" :
+		{
+		"method" : "delete",
+		"uri" : "/book_delete",
+		"queries":{"booke_name":"dayun","check_status":"gaohe"}
+		},
+		"response" :
+		{
+			"json":{"error_code":0,"reason":"successed","name" : "mayun","price":789},
+			"status":200
+		}
+	}
+	
+
+]
