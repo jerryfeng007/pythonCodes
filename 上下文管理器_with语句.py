@@ -2,6 +2,7 @@ import pymongo
 import threading
 import aiohttp
 import smtplib
+import requests
 
 url1 = 'https://www.baidu.com'
 
@@ -29,7 +30,11 @@ async def download_one(url):
         async with session.get(url) as resp:
             print(f'read {resp.content_length} from {url}')
 
-# 5.发邮件
+# 5.session
+with requests.session() as s:
+    s.get('http://httpbin.org/cookies/set/sessioncookie/123456789')
+
+# 6.发邮件
     with smtplib.SMTP_SSL('smtp.qq.com', '465') as smtp:
         smtp.set_debuglevel(0)
         smtp.login('267009633', 'yzb')
