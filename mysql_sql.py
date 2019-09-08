@@ -3,7 +3,7 @@ print('------------------------------------连接数据库----------------------
 
 try:
     con = mysql.connector.connect(
-        host='127.0.0.1',
+        host='192.170.97.10',
         user='root',
         password='vertrigo',
         port=3306,

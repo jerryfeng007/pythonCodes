@@ -38,15 +38,15 @@ def send_mail(from1, to, title, content, attach=None, pic=None, type='plain'):
         smtp.set_debuglevel(1)
 
         # 登陆，用户名+密码，密码可能需要填写授权码
-        smtp.login('fengchuanyun85', 'xxxxxxxxxxxxx')
+        smtp.login('fekkngchggg', 'xxxxxxxxxxxxx')
 
         # 发送，from+to+内容
         smtp.sendmail(from1, to, str(msg))
 
 
 # 设置变量并调用发送邮件
-from1 = 'fengchuanyun85@126.com'
-to = '270062331@qq.com'
+from1 = 'fettgfrews@126.com'
+to = '09h658gvcb@qq.com'
 title = '你好吗哈哈哈'
 content = """
 Hi all,
