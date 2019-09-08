@@ -1,0 +1,2 @@
+1. 百度网盘上---python自动化x4视频以外---selenium.zip
+2. 先把HTMLTestRunner_CN_Chart_Screen.py放在D:\Python34\Lib
