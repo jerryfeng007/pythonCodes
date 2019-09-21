@@ -497,3 +497,11 @@ def aaa(path):
 
 path = r'C:\AppData'
 aaa(path)
+
+print('-------------------------18.table.append(info)插入excel---------------------------------')
+
+'''
+for movie in movies:
+    info = [movie['title'], movie['rate']]
+    table.append(info)  # ---------------------注意这个用法
+'''
