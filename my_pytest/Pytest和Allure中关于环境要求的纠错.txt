@@ -1,0 +1,9 @@
+Pytest+Allure中关于环境要求的纠错
+
+1、先安装jdk1.8并配置好环境变量，cmd下验证：java -version
+
+2、pip3 install allure-pytest
+
+3、访问https://github.com/allure-framework/allure2/releases下载allure。下载完成之后解压到项目跟目录，并配置bin目录到环境变量Path中（cmd下验证：allure --version）
+
+视频里说的有误，以上三步骤缺一不可
