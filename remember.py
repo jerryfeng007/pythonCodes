@@ -1,5 +1,6 @@
 import random
 import os
+import requests
 
 print('--------------------------------------1.列表练习题-------------------------------------------------------------')
 
@@ -395,7 +396,7 @@ if __name__ == '__main__':
     post_upload_pic(url, data, files, cookie)
 '''
 
-print('----------------------------------14.上传------------------------------------------------------')
+print('----------------------------------14.参数传递------------------------------------------------------')
 
 d1 = {'name': 'jerry', 'age': 18}
 
@@ -505,3 +506,17 @@ for movie in movies:
     info = [movie['title'], movie['rate']]
     table.append(info)  # ---------------------注意这个用法
 '''
+
+print('--------------------------19.图片下载------------------------------------------------------')
+url = 'http://e.hiphotos.baidu.com/image/pic/item/4610b912c8fcc3cef70d70409845d688d53f20f7.jpg'
+
+# 方式1
+r = requests.get(url)
+with open('5555555.jpg', 'wb') as f:
+    f.write(r.content)
+
+# 方式2
+r = requests.get(url, stream=True)
+with open('6666666.jpg', 'wb') as f:
+    for chunk in r.iter_content(1024):
+        f.write(chunk)
