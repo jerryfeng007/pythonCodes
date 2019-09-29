@@ -1,11 +1,14 @@
 import time
-import requests
 import openpyxl
 from bs4 import BeautifulSoup
+import aiohttp
+import asyncio
 
 
-def deal(target_url, headers, file, base_url='http://www.xqtesting.com'):
-    res = requests.get(target_url, headers=headers).content
+async def deal(target_url, headers, file, base_url='http://www.xqtesting.com'):
+    async with aiohttp.ClientSession() as s:
+        async with s.get(target_url, headers=headers) as res:
+            res = await res.text()
 
     # 创建对象，以python内置的标准库
     soup = BeautifulSoup(res, 'html.parser')
@@ -23,15 +26,15 @@ def deal(target_url, headers, file, base_url='http://www.xqtesting.com'):
         file.write(full_url.strip()+'\n')
 
 
-def urls():
+async def urls():
     urls = []
     for i in range(1, table.max_row+1):
         target_url = table.cell(row=i, column=1).value.replace('\n', '').replace('\r', '')
         urls.append(target_url)
 
-    with open('blog.txt', 'w') as file:
-        for url in urls:
-            deal(url, headers, file)
+    with open('blog_异步.txt', 'w') as file:
+        tasks = [asyncio.create_task(deal(url, headers, file)) for url in urls]
+        await asyncio.gather(*tasks)
 
 
 if __name__ == '__main__':
@@ -43,7 +46,7 @@ if __name__ == '__main__':
     wb = openpyxl.load_workbook('target_url.xlsx')
     table = wb['Sheet1']
 
-    urls()
+    asyncio.run(urls())
 
     e = time.time()
     print(e - s)
