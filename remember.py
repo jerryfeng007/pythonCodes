@@ -520,3 +520,9 @@ r = requests.get(url, stream=True)
 with open('6666666.jpg', 'wb') as f:
     for chunk in r.iter_content(1024):
         f.write(chunk)
+
+print('--------------------------20.给定两个字符串，查找--------------------------------------------------')
+s1 = 'fengyunchuanyun'
+s2 = 'yun'
+sss = s1.find(s2)
+print(sss)
