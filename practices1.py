@@ -606,23 +606,6 @@ for i in range(1, 51):
 #         print('*', end='')
 #     print()
 
-
-# 31.输入一个数，判断是不是质数（也叫素数，只能被1和自己整除的数）
-# def mm(a):
-#     for i in range(2, a):
-#         if a % i == 0:
-#             return False
-#         elif i == a-1:
-#             return True
-#
-#
-# if __name__ == '__main__':
-#     a = eval(input('输入一个数：'))
-#     if mm(a):
-#         print('是质数')
-#     else:
-#         print('不是质数')
-
 # 32.求1-100中后5个质数之和
 # def mm(i):
 #     for j in range(2, i):
