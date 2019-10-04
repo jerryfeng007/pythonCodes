@@ -48,3 +48,13 @@ with open('params.json', 'r') as fin:
 
 print('after json deserialization')
 print('type of original_params = {}, original_params = {}'.format(type(original_params), original_params))
+
+print('-------------------------------------格式优美---------------------------------------------------')
+
+data = [{'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}]
+n = json.dumps(data)
+print(n)
+
+# 使用indent=4
+o = json.dumps(data, indent=4)
+print(o)
