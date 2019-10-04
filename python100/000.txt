@@ -1,3 +1,6 @@
 https://www.runoob.com/python/python-100-examples.html
 
-https://www.runoob.com/quiz/python-quiz.html  -------做完100例再做！
+
+# python基础
+https://www.runoob.com/python/python-json.html
+
