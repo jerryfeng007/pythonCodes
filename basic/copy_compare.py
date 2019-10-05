@@ -122,7 +122,7 @@ print(l1 == l2)
 print(l1 is l2)  # false
 
 print('--------------------------------------------复制文件的两种方法------------------------------------------')
-
+'''
 # 使用shutil.copy
 import shutil
 shutil.copy('ccc.JPG', './归类练习/eee.JPG')
@@ -131,3 +131,34 @@ shutil.copy('ccc.JPG', './归类练习/eee.JPG')
 with open('ccc.JPG', 'rb') as f, open('./归类练习/fff.jpg', 'wb') as f1:
     con = f.read()
     f1.write(con)
+'''
+
+print('--------------------------------浅拷贝、深拷贝、直接赋值的区别-----------------------------------------')
+
+# 例子--列表
+l1 = [1, 2, 3, [4, 5]]
+l2 = l1
+l3 = l1.copy()
+l4 = copy.deepcopy(l1)
+
+l1.append(7)
+l1[3].append(6)
+
+print(l1)
+print(l2)
+print(l3)
+print(l4)
+
+# 例子--字典
+d1 = {'name': 'jerry', 'age': [18, 19]}
+d2 = d1
+d3 = d1.copy()
+d4 = copy.deepcopy(d1)
+
+d1['name'] = 'tom'
+d1['age'].append(20)
+
+print(d1)
+print(d2)
+print(d3)
+print(d4)
