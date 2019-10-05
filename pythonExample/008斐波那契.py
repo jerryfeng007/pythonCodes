@@ -12,9 +12,6 @@ def aa(n):
     return aa(n-1) + aa(n-2)
 
 
-print(aa(1))
-print(aa(2))
-print(aa(3))
-print(aa(4))
-print(aa(5))
-print(aa(20))
+n = 10
+for n in range(1, n+1):
+    print(aa(n), end=',')
