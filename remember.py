@@ -476,7 +476,7 @@ def ccc(num):
                 num[j], num[j+1] = num[j+1], num[j]
                 flag = True
         if not flag:
-            break
+            return num
     return num
 
 
