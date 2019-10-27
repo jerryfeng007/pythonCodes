@@ -432,58 +432,6 @@ def sss():
 
 sss()
 
-print('----------------------------------16.冒泡排序-----------------------------------------------')
-# 冒泡排序是指从头至尾比较相邻的元素。如果第一个元素比第二个元素大，就交换。
-
-# 1.用for循环实现冒泡升序排序
-
-
-def aaa(num):
-    for j in range(len(num)-1):        # 需要比较 len(num)-1轮
-        for i in range(len(num)-1-j):  # 每一轮比较几次
-            if num[i] > num[i+1]:
-                num[i], num[i+1] = num[i+1], num[i]
-    return num
-
-
-num = [1, -3, 4, 0, 9, 5, 2, 3, 6]
-num = aaa(num)
-print(num)
-
-# 2.用for循环实现冒泡降序排列
-
-
-def bbb(num):
-    for j in range(len(num)-1):  # 比较len(num)-1轮
-        for i in range(len(num)-1-j):  # 每一轮比较几次
-            if num[i] < num[i+1]:
-                num[i], num[i+1] = num[i+1], num[i]
-    return num
-
-
-num = [1, -3, 4, 0, 9, 5, 2, 3, 6]
-num = bbb(num)
-print(num)
-
-# 优化版--------------------------------------------------
-
-
-def ccc(num):
-    for i in range(len(num)-1):
-        flag = False                   # 设置一个交换标志位
-        for j in range(len(num)-1-i):
-            if num[j] > num[j+1]:
-                num[j], num[j+1] = num[j+1], num[j]
-                flag = True
-        if not flag:
-            return num
-    return num
-
-
-num = [1, -3, 4, 0, 9, 5, 2, 3, 6]
-num = ccc(num)
-print(num)
-
 print('----------------------------------17.递归展示目录下的文件---------------------------------------')
 
 
