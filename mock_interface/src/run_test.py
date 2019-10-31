@@ -24,9 +24,9 @@ def run_case(test_case, report, log, wb, s):
         # 在request_data、path中查找是否存在需要关联的数据
         if correlation_dict:
             for keyword in correlation_dict:
-                if request_data.find(keyword):
+                if request_data.find(keyword) > 0:
                     request_data = request_data.replace(keyword, (correlation_dict[keyword]))
-                if path.find(keyword):
+                if path.find(keyword) > 0:
                     path = path.replace(keyword, (correlation_dict[keyword]))
             print('最终请求数据=', request_data)
             print('最终请求path=', path)
