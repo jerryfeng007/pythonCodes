@@ -26,3 +26,13 @@ def sum3(n):
 
 
 print(sum3(5))
+
+
+# 方法4 递归
+def sum4(n):
+    if n == 1:
+        return 1
+    return n + sum4(n-1)
+
+
+print(sum4(5))

@@ -27,3 +27,13 @@ def ji3(l):
 
 
 print(ji3([1, 2, 3, 4]))
+
+
+# 方法4 递归
+def ji4(n):
+    if n == 1:
+        return 1
+    return n * ji4(n-1)
+
+
+print(ji4(4))
