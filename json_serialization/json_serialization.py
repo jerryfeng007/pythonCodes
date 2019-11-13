@@ -41,7 +41,7 @@ params = {
 
 # 备注：如果是文件操作，就使用dump和load，而不是dumps和loads
 with open('params.json', 'w') as fout:
-    params_str = json.dump(params, fout)  # 注意这里是 dump，不是dumps
+    json.dump(params, fout)  # 注意这里是 dump，不是dumps
 
 with open('params.json', 'r') as fin:
     original_params = json.load(fin)     # 注意这里是 load，不是loads
@@ -49,12 +49,12 @@ with open('params.json', 'r') as fin:
 print('after json deserialization')
 print('type of original_params = {}, original_params = {}'.format(type(original_params), original_params))
 
-print('-------------------------------------格式优美---------------------------------------------------')
-
-data = [{'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}]
-n = json.dumps(data)
-print(n)
-
-# 使用indent=4
-o = json.dumps(data, indent=4)
-print(o)
+# print('-------------------------------------格式优美---------------------------------------------------')
+#
+# data = [{'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}]
+# n = json.dumps(data)
+# print(n)
+#
+# # 使用indent=4
+# o = json.dumps(data, indent=4)
+# print(o)
